@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ciencia y Bienestar</title>
+  <style>
+    :root {
+      --verde-lima: #8DC63F;
+      --verde-pasto: #A3C94D;
+      --verde-oscuro: #4CAF50;
+      --gris-texto: #333;
+      --amarillo: #FFE600;
+      --blanco: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body, html {
+      height: 100%;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f4f4;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      max-width: 1200px;
+      margin: 0 auto;
+      background: white;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    header {
+      background-color: var(--blanco);
+      padding: 12px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 4px solid var(--verde-lima);
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: bold;
+      color: var(--verde-oscuro);
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--gris-texto);
+      font-weight: 600;
+      padding: 6px 12px;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+
+    nav a:hover,
+    nav a.active {
+      background-color: var(--verde-lima);
+      color: white;
+    }
+
+    .hero {
+      display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh; /* Hace que toda la sección llene la pantalla */
+  padding: 0 20px;
+  background: linear-gradient(to bottom, var(--verde-pasto), #e5f4b4);
+}
+
+    .hero-left {
+      flex: 1 1 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+    .hero-left img {
+      width: 100%;
+  height: 50vh; /* ocupa toda la altura visible */
+  object-fit: cover; /* recorta sin deformar */
+  border-radius: 0; /* sin bordes si quieres fullscreen */
+}
+
+    .hero-right {
+      flex: 1 1 400px;
+      padding: 20px;
+      color: var(--gris-texto);
+    }
+
+    .hero-right h2 {
+      font-size: 28px;
+      margin-bottom: 10px;
+      color: var(--verde-oscuro);
+    }
+
+    .hero-right h4 {
+      color: #777;
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+
+    .hero-right p {
+      font-size: 16px;
+      margin-bottom: 15px;
+      line-height: 1.6;
+    }
+
+    .hero-right .btn {
+      background-color: white;
+      border: 2px solid var(--verde-oscuro);
+      color: var(--verde-oscuro);
+      padding: 8px 18px;
+      border-radius: 20px;
+      font-weight: bold;
+      text-decoration: none;
+      font-size: 14px;
+      display: inline-block;
+    }
+
+    .hero-right .btn:hover {
+      background-color: var(--verde-oscuro);
+      color: white;
+    }
+
+    footer {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      font-size: 14px;
+      border-top: 4px solid var(--verde-lima);
+    }
+
+    .footer-left,
+    .footer-right {
+      flex: 1 1 300px;
+      padding: 20px;
+    }
+
+    .footer-left {
+      background-color: var(--verde-lima);
+      color: white;
+    }
+
+    .footer-right {
+      background-color: var(--blanco);
+      color: #555;
+    }
+
+    .footer-left h4,
+    .footer-right h4 {
+      margin-bottom: 8px;
+      font-size: 16px;
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .hero-left img {
+        margin-left: 0;
+      }
+
+      .hero-right {
+        padding-top: 20px;
+      }
+
+      footer {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      nav {
+        justify-content: center;
+      }
+
+      nav a {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <header>
+      <div class="logo">Ciencia y Bienestar</div>
+      <nav>
+        <a href="index.html">Inicio</a>
+        <a href="habitos.html">Hábitos</a>
+        <a href="ciencia.html">Ciencia</a>
+        <a href="apps.html">Apps</a>
+        <a href="recursos.html">Recursos</a>
+        <a href="nosotros.html">Nosotros</a>
+        <a href="contacto.html">Contacto</a>
+      </nav>
+    </header>
+
+    
+      <div class="hero-left">
+  <img src="imagenes/portada3.jpg" alt="Estilo de vida saludable" />
+</div>
+      <div class="hero-right">
+        <h2>Estilo de vida saludable</h2>
+        <h4>¿Jugar o aprender? ¡Ambos!</h4>
+        <p>
+          Transforma tu rutina en una experiencia de bienestar. Aprende cómo integrar ciencia, juego y hábitos saludables para mejorar tu calidad de vida desde casa, la escuela o el entorno digital.
+        </p>
+        <a href="recursos.html" class="btn">Ver recursos</a>
+      </div>
+
+
+    <footer>
+      <div class="footer-left">
+        <h4>FRESH FEEDBACK</h4>
+        <p>Lo que la comunidad está compartiendo...</p>
+      </div>
+      <div class="footer-right">
+        <h4>Noticias</h4>
+        <p>Escucha lo que ocurre alrededor del bienestar cada día.</p>
+      </div>
+    </footer>
+
+  </div>
+</body>
+</html>

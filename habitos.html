@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hábitos Saludables</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f0f4f8;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #fff;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid #ccc;
+    }
+
+    .logo {
+      font-weight: bold;
+      font-size: 24px;
+      color: #4CAF50;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #333;
+      margin: 0 10px;
+      font-weight: 500;
+      padding: 6px 12px;
+    }
+
+    nav a.active,
+    nav a:hover {
+      background-color: #4CAF50;
+      color: #fff;
+      border-radius: 5px;
+    }
+
+    .content {
+      max-width: 1000px;
+      background-color: #fff;
+      margin: 40px auto;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      color: #2e7d32;
+      margin-bottom: 20px;
+    }
+
+    ul {
+      padding-left: 20px;
+      font-size: 18px;
+    }
+
+    ul li {
+      margin-bottom: 10px;
+    }
+
+    .separador {
+      border: none;
+      border-top: 4px double #4CAF50;
+      margin: 40px 0 20px;
+    }
+
+    .galeria {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr); /* 5 columnas fijas */
+      gap: 15px;
+      padding: 20px;
+    }
+
+    .galeria-item {
+      text-align: center;
+    }
+
+    .galeria img {
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+
+    .galeria img:hover {
+      transform: scale(1.05);
+    }
+
+    .galeria p {
+      font-size: 14px;
+      margin-top: 8px;
+      color: #444;
+    }
+
+    .overlay {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0,0,0,0.85);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      flex-direction: column;
+      padding: 20px;
+    }
+
+    .overlay img {
+      max-width: 90%;
+      max-height: 80vh;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(255,255,255,0.3);
+      animation: zoomIn 0.4s ease;
+    }
+
+    .close-btn {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .close-btn:hover {
+      background-color: #388e3c;
+    }
+
+    @keyframes zoomIn {
+      from { transform: scale(0.5); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    /* Responsive para tablets */
+    @media (max-width: 992px) {
+      .galeria {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    /* Responsive para móviles */
+    @media (max-width: 600px) {
+      .galeria {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .galeria img {
+        height: 120px;
+      }
+
+      .content {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">Ciencia y Bienestar</div>
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="habitos.html" class="active">Hábitos Saludables</a>
+      <a href="ciencia.html">Ciencia para la Vida</a>
+      <a href="apps.html">Apps</a>
+      <a href="recursos.html">Recursos</a>
+      <a href="nosotros.html">Nosotros</a>
+      <a href="contacto.html">Contacto</a>
+    </nav>
+  </header>
+
+  <div class="content">
+    <h1>Hábitos Saludables</h1>
+    <p>
+      Los hábitos saludables son conductas diarias que favorecen el bienestar físico y mental. Incluirlos en tu rutina puede marcar la diferencia en tu calidad de vida. A continuación, te presentamos algunos pilares fundamentales:
+    </p>
+    <ul>
+      <li><strong>Alimentación equilibrada:</strong> Consume frutas, verduras, cereales integrales y proteínas magras.</li>
+      <li><strong>Actividad física:</strong> Realiza al menos 30 minutos de ejercicio moderado al día.</li>
+      <li><strong>Descanso adecuado:</strong> Dormir entre 7 y 8 horas cada noche.</li>
+      <li><strong>Gestión del estrés:</strong> Practica técnicas de relajación o meditación.</li>
+      <li><strong>Hidratación:</strong> Bebe suficiente agua durante el día.</li>
+    </ul>
+
+    <hr class="separador">
+    <h2 style="text-align: center; color: #2e7d32;">Galería de inspiración saludable</h2>
+
+    <div class="galeria">
+      <div class="galeria-item">
+        <img src="imagenes/s1.jpg" alt="1">
+        <p>Ejercicio diario</p>
+      </div>
+      <div class="galeria-item">
+        <img src="imagenes/s2.jpg" alt="2">
+        <p>Desayuno saludable</p>
+      </div>
+      <div class="galeria-item">
+        <img src="imagenes/s3.jpg" alt="3">
+        <p>Frutas frescas</p>
+      </div>
+      <div class="galeria-item">
+        <img src="imagenes/s4.jpg" alt="4">
+        <p>Tiempo al aire libre</p>
+      </div>
+      <div class="galeria-item">
+        <img src="imagenes/s5.jpg" alt="5">
+        <p>Hidratación constante</p>
+      </div>
+      <div class="galeria-item">
+        <img src="imagenes/s6.jpg" alt="6">
+        <p>Almuerzo nutritivo</p>
+      </div>
+      <div class="galeria-item">
+        <img src="imagenes/s7.jpg" alt="7">
+        <p>Mente en calma</p>
+      </div>
+      <div class="galeria-item">
+        <img src="imagenes/s8.jpg" alt="8">
+        <p>Actividad familiar</p>
+      </div>
+      <div class="galeria-item">
+        <img src="imagenes/s9.jpg" alt="9">
+        <p>Descanso profundo</p>
+      </div>
+      <div class="galeria-item">
+        <img src="imagenes/s10.jpg" alt="10">
+        <p>Mindfulness</p>
+      </div>
+    </div>
+
+    <!-- Imagen Ampliada -->
+    <div id="overlay" class="overlay">
+      <img id="imagen-ampliada" src="" alt="Imagen ampliada">
+      <button class="close-btn" onclick="cerrarImagen()">Cerrar</button>
+    </div>
+  </div>
+
+  <script>
+    const imagenes = document.querySelectorAll('.galeria img');
+    const overlay = document.getElementById('overlay');
+    const imagenAmpliada = document.getElementById('imagen-ampliada');
+
+    imagenes.forEach(img => {
+      img.addEventListener('click', () => {
+        imagenAmpliada.src = img.src;
+        overlay.style.display = 'flex';
+      });
+    });
+
+    function cerrarImagen() {
+      overlay.style.display = 'none';
+      imagenAmpliada.src = '';
+    }
+  </script>
+
+</body>
+</html>
