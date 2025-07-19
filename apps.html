@@ -3,77 +3,195 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Hábitos Saludables</title>
+  <title>Apps | Ciencia y Bienestar</title>
   <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #f0f4f8;
+    :root {
+      --verde-lima: #8DC63F;
+      --verde-pasto: #A3C94D;
+      --verde-oscuro: #4CAF50;
+      --gris-texto: #333;
+      --amarillo: #FFE600;
+      --blanco: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
 
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f4f4;
+    }
+
     header {
-      background-color: #fff;
-      padding: 20px 40px;
+      background-color: var(--blanco);
+      padding: 15px 30px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 2px solid #ccc;
+      border-bottom: 4px solid var(--verde-lima);
+      flex-wrap: wrap;
     }
 
     .logo {
-      font-weight: bold;
       font-size: 24px;
-      color: #4CAF50;
+      font-weight: bold;
+      color: var(--verde-oscuro);
+      cursor: pointer;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
     }
 
     nav a {
       text-decoration: none;
-      color: #333;
-      margin: 0 10px;
-      font-weight: 500;
+      color: var(--gris-texto);
+      font-weight: 600;
       padding: 6px 12px;
-    }
-
-    nav a.active,
-    nav a:hover {
-      background-color: #4CAF50;
-      color: #fff;
       border-radius: 5px;
+      transition: background 0.3s ease;
     }
 
-    .content {
-      max-width: 1000px;
-      background-color: #fff;
-      margin: 40px auto;
-      padding: 40px;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    nav a:hover,
+    nav a.active {
+      background-color: var(--verde-lima);
+      color: white;
     }
 
-    h1 {
-      color: #2e7d32;
-      margin-bottom: 20px;
+    .hero {
+      background: linear-gradient(to right, #8DC63F, #A3C94D);
+      color: white;
+      text-align: center;
+      padding: 60px 20px;
+      animation: slideDown 1s ease-out;
     }
 
-    ul {
-      padding-left: 20px;
-      font-size: 18px;
+    @keyframes slideDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to   { opacity: 1; transform: translateY(0); }
     }
 
-    ul li {
+    .hero h1 {
+      font-size: 40px;
       margin-bottom: 10px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .app-section {
+      padding: 40px 20px;
+      max-width: 1200px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+
+    .app-card {
+      background-color: white;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      animation: fadeInUp 0.7s ease forwards;
+      opacity: 0;
+    }
+
+    .app-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .app-icon {
+      font-size: 50px;
+      margin-bottom: 15px;
+      color: var(--verde-oscuro);
+    }
+
+    .app-title {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .app-desc {
+      font-size: 15px;
+      color: #666;
+    }
+
+    footer {
+      display: flex;
+      flex-wrap: wrap;
+      font-size: 14px;
+      border-top: 4px solid var(--verde-lima);
+    }
+
+    .footer-left,
+    .footer-right {
+      flex: 1 1 300px;
+      padding: 20px;
+    }
+
+    .footer-left {
+      background-color: var(--verde-lima);
+      color: white;
+    }
+
+    .footer-right {
+      background-color: var(--blanco);
+      color: #555;
+    }
+
+    .footer-left h4,
+    .footer-right h4 {
+      margin-bottom: 8px;
+      font-size: 16px;
+    }
+
+    .copyright {
+      text-align: center;
+      background-color: #e0e0e0;
+      color: #333;
+      padding: 10px;
+      font-size: 13px;
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 28px;
+      }
     }
   </style>
 </head>
 <body>
 
   <header>
-    <div class="logo">Ciencia y Bienestar</div>
+    <div class="logo" onclick="window.location.href='intro.html'">Ciencia y Bienestar</div>
     <nav>
       <a href="index.html">Inicio</a>
-      <a href="habitos.html">Hábitos Saludables</a>
-      <a href="ciencia.html">Ciencia para la Vida</a>
+      <a href="habitos.html">Hábitos</a>
+      <a href="ciencia.html">Ciencia</a>
       <a href="apps.html" class="active">Apps</a>
       <a href="recursos.html">Recursos</a>
       <a href="nosotros.html">Nosotros</a>
@@ -81,18 +199,73 @@
     </nav>
   </header>
 
-  <div class="content">
-    <h1>Hábitos Saludables</h1>
-    <p>
-      Los hábitos saludables son conductas diarias que favorecen el bienestar físico y mental. Incluirlos en tu rutina puede marcar la diferencia en tu calidad de vida. A continuación, te presentamos algunos pilares fundamentales:
-    </p>
-    <ul>
-      <li><strong>Alimentación equilibrada:</strong> Consume frutas, verduras, cereales integrales y proteínas magras. Evita el exceso de azúcar, grasas saturadas y procesados.</li>
-      <li><strong>Actividad física:</strong> Realiza al menos 30 minutos de ejercicio moderado al día, como caminar, correr o practicar un deporte.</li>
-      <li><strong>Descanso adecuado:</strong> Dormir entre 7 y 8 horas cada noche es vital para que el cuerpo se recupere y funcione correctamente.</li>
-      <li><strong>Gestión del estrés:</strong> Practica técnicas de relajación, respiración o meditación para mantener una mente tranquila.</li>
-      <li><strong>Hidratación:</strong> Bebe suficiente agua durante el día. La hidratación es esencial para todos los procesos del cuerpo.</li>
-    </ul>
+  <section class="hero">
+    <h1>Apps que Transforman tu Vida</h1>
+    <p>Descubre aplicaciones móviles que apoyan tu salud, aprendizaje y bienestar personal desde cualquier lugar.</p>
+  </section>
+
+  <section class="app-section">
+  <div class="app-card" style="animation-delay: 0.1s;">
+    <div class="app-icon">📱</div>
+    <div class="app-title">Daily Yoga</div>
+    <div class="app-desc">Mejora tu flexibilidad y reduce el estrés con sesiones guiadas para todos los niveles.</div>
+  </div>
+
+  <div class="app-card" style="animation-delay: 0.2s;">
+    <div class="app-icon">🥦</div>
+    <div class="app-title">Yazio</div>
+    <div class="app-desc">Planifica tus comidas y controla tu ingesta nutricional de manera sencilla.</div>
+  </div>
+
+  <div class="app-card" style="animation-delay: 0.3s;">
+    <div class="app-icon">💤</div>
+    <div class="app-title">Sleep Cycle</div>
+    <div class="app-desc">Optimiza tus horas de sueño y despierta con más energía gracias al análisis del descanso.</div>
+  </div>
+
+  <div class="app-card" style="animation-delay: 0.4s;">
+    <div class="app-icon">🧠</div>
+    <div class="app-title">Elevate</div>
+    <div class="app-desc">Entrena tu mente con juegos de lógica, lectura, memoria y concentración.</div>
+  </div>
+
+  <div class="app-card" style="animation-delay: 0.5s;">
+    <div class="app-icon">🏃</div>
+    <div class="app-title">Google Fit</div>
+    <div class="app-desc">Haz seguimiento de tu actividad física diaria con metas personalizadas y datos en tiempo real.</div>
+  </div>
+
+  <div class="app-card" style="animation-delay: 0.6s;">
+    <div class="app-icon">🎧</div>
+    <div class="app-title">Calm</div>
+    <div class="app-desc">Disfruta de meditaciones guiadas, sonidos relajantes y herramientas para dormir mejor.</div>
+  </div>
+
+  <div class="app-card" style="animation-delay: 0.7s;">
+    <div class="app-icon">🌳</div>
+    <div class="app-title">Forest</div>
+    <div class="app-desc">Planta árboles virtuales mientras te concentras y evitas distracciones con el móvil.</div>
+  </div>
+
+  <div class="app-card" style="animation-delay: 0.8s;">
+    <div class="app-icon">🍽️</div>
+    <div class="app-title">MyFitnessPal</div>
+    <div class="app-desc">Registra lo que comes y haz seguimiento de calorías y ejercicios con facilidad.</div>
+  </div>
+</section>
+
+  <footer>
+    <div class="footer-left">
+      <h4>FRESH FEEDBACK</h4>
+      <p>Lo que la comunidad está compartiendo...</p>
+    </div>
+    <div class="footer-right">
+      <h4>Noticias</h4>
+      <p>Escucha lo que ocurre alrededor del bienestar cada día.</p>
+    </div>
+  </footer>
+  <div class="copyright">
+    © 2025 Ciencia y Bienestar | Todos los derechos reservados.
   </div>
 
 </body>
