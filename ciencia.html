@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Hábitos Saludables</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ciencias para la Vida</title>
   <style>
     body {
+      margin: 0;
       font-family: 'Segoe UI', sans-serif;
       background-color: #f0f4f8;
-      margin: 0;
-      padding: 0;
     }
 
     header {
@@ -42,32 +41,109 @@
       border-radius: 5px;
     }
 
-    .content {
-      max-width: 1000px;
-      background-color: #fff;
-      margin: 40px auto;
-      padding: 40px;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    .hero {
+      background: linear-gradient(to right, #a8e063, #56ab2f);
+      color: white;
+      text-align: center;
+      padding: 80px 20px;
     }
 
-    h1 {
-      color: #2e7d32;
-      margin-bottom: 20px;
-    }
-
-    ul {
-      padding-left: 20px;
-      font-size: 18px;
-    }
-
-    ul li {
+    .hero h1 {
+      font-size: 48px;
       margin-bottom: 10px;
+      animation: fadeInDown 1s ease;
+    }
+
+    .hero p {
+      font-size: 20px;
+      animation: fadeInUp 1.2s ease;
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .video-section {
+      padding: 40px 20px;
+      background-color: #e8f5e9;
+      text-align: center;
+    }
+
+    .video-section h2 {
+      color: #2e7d32;
+      margin-bottom: 30px;
+      font-size: 32px;
+    }
+
+    .main-video-wrapper {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 30px;
+    }
+
+    #main-video {
+      width: 100%;
+      max-width: 800px;
+      aspect-ratio: 16 / 9;
+      border: 4px solid #66bb6a;
+      border-radius: 10px;
+    }
+
+    .video-thumbnails {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .video-thumbnails img {
+      width: 200px;
+      height: 112px;
+      border-radius: 8px;
+      cursor: pointer;
+      object-fit: cover;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      transition: transform 0.2s ease;
+    }
+
+    .video-thumbnails img:hover {
+      transform: scale(1.1);
+      border: 2px solid #4CAF50;
+    }
+
+    footer {
+      background-color: #2e7d32;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+    }
+
+    @media (max-width: 768px) {
+      .video-thumbnails img {
+        width: 100%;
+        height: auto;
+      }
+
+      .hero h1 {
+        font-size: 36px;
+      }
+
+      .hero p {
+        font-size: 18px;
+      }
     }
   </style>
 </head>
 <body>
 
+  <!-- ENCABEZADO -->
   <header>
     <div class="logo">Ciencia y Bienestar</div>
     <nav>
@@ -81,19 +157,44 @@
     </nav>
   </header>
 
-  <div class="content">
-    <h1>Hábitos Saludables</h1>
-    <p>
-      Los hábitos saludables son conductas diarias que favorecen el bienestar físico y mental. Incluirlos en tu rutina puede marcar la diferencia en tu calidad de vida. A continuación, te presentamos algunos pilares fundamentales:
-    </p>
-    <ul>
-      <li><strong>Alimentación equilibrada:</strong> Consume frutas, verduras, cereales integrales y proteínas magras. Evita el exceso de azúcar, grasas saturadas y procesados.</li>
-      <li><strong>Actividad física:</strong> Realiza al menos 30 minutos de ejercicio moderado al día, como caminar, correr o practicar un deporte.</li>
-      <li><strong>Descanso adecuado:</strong> Dormir entre 7 y 8 horas cada noche es vital para que el cuerpo se recupere y funcione correctamente.</li>
-      <li><strong>Gestión del estrés:</strong> Practica técnicas de relajación, respiración o meditación para mantener una mente tranquila.</li>
-      <li><strong>Hidratación:</strong> Bebe suficiente agua durante el día. La hidratación es esencial para todos los procesos del cuerpo.</li>
-    </ul>
-  </div>
+  <!-- PORTADA -->
+  <section class="hero">
+    <h1>Ciencias para la Vida</h1>
+    <p>Explora cómo la ciencia contribuye a un estilo de vida saludable y equilibrado</p>
+  </section>
 
+  <!-- VIDEOS -->
+  <section class="video-section">
+    <h2>Explora nuestros videos</h2>
+
+    <div class="main-video-wrapper">
+      <iframe id="main-video" src="https://www.youtube.com/embed/6zGQSWib32E"
+        title="Video principal"
+        frameborder="0"
+        allowfullscreen>
+      </iframe>
+    </div>
+
+    <div class="video-thumbnails">
+      <img src="https://img.youtube.com/vi/6zGQSWib32E/0.jpg" onclick="cambiarVideo('6zGQSWib32E')" alt="Video 1">
+      <img src="https://img.youtube.com/vi/NpEaa2P7qZI/0.jpg" onclick="cambiarVideo('NpEaa2P7qZI')" alt="Video 2">
+      <img src="https://img.youtube.com/vi/f2O6mQkFiiw/0.jpg" onclick="cambiarVideo('f2O6mQkFiiw')" alt="Video 3">
+      <img src="https://img.youtube.com/vi/hTWKbfoikeg/0.jpg" onclick="cambiarVideo('hTWKbfoikeg')" alt="Video 4">
+      <img src="https://img.youtube.com/vi/DLX62G4lc44/0.jpg" onclick="cambiarVideo('DLX62G4lc44')" alt="Video 5">
+      <img src="https://img.youtube.com/vi/tgbNymZ7vqY/0.jpg" onclick="cambiarVideo('tgbNymZ7vqY')" alt="Video 6">
+    </div>
+  </section>
+
+
+  <!-- SCRIPT -->
+  <script>
+    function cambiarVideo(videoId) {
+      const mainVideo = document.getElementById('main-video');
+      mainVideo.src = `https://www.youtube.com/embed/${videoId}`;
+    }
+  </script>
+<div style="text-align: center; background-color: #e0e0e0; color: #333; padding: 10px; font-size: 13px;">
+  © 2025 Ciencia y Bienestar | Todos los derechos reservados.
+</div>
 </body>
 </html>

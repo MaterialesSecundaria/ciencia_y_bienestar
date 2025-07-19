@@ -3,66 +3,156 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Hábitos Saludables</title>
+  <title>Nosotros | Ciencia y Bienestar</title>
   <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #f0f4f8;
+    :root {
+      --verde-lima: #8DC63F;
+      --verde-pasto: #A3C94D;
+      --verde-oscuro: #4CAF50;
+      --gris-texto: #333;
+      --blanco: #ffffff;
+      --fondo: #f0f9f0;
+    }
+
+    * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
 
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--fondo);
+      color: var(--gris-texto);
+    }
+
     header {
-      background-color: #fff;
+      background-color: var(--blanco);
       padding: 20px 40px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 2px solid #ccc;
+      border-bottom: 3px solid var(--verde-lima);
     }
 
     .logo {
-      font-weight: bold;
       font-size: 24px;
-      color: #4CAF50;
+      font-weight: bold;
+      color: var(--verde-oscuro);
     }
 
     nav a {
       text-decoration: none;
-      color: #333;
+      color: var(--gris-texto);
       margin: 0 10px;
       font-weight: 500;
       padding: 6px 12px;
     }
 
-    nav a.active,
-    nav a:hover {
-      background-color: #4CAF50;
-      color: #fff;
+    nav a:hover, nav a.active {
+      background-color: var(--verde-oscuro);
+      color: var(--blanco);
       border-radius: 5px;
     }
 
-    .content {
+    .contenido {
       max-width: 1000px;
-      background-color: #fff;
       margin: 40px auto;
-      padding: 40px;
-      border-radius: 10px;
+      padding: 30px;
+      background: white;
+      border-radius: 12px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      animation: fadeIn 1s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     h1 {
-      color: #2e7d32;
+      text-align: center;
       margin-bottom: 20px;
+      color: var(--verde-oscuro);
     }
 
-    ul {
-      padding-left: 20px;
+    .nosotros-info {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      align-items: center;
+      justify-content: center;
+      margin-top: 30px;
+    }
+
+    .nosotros-texto {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .nosotros-texto p {
       font-size: 18px;
+      margin-bottom: 15px;
+      line-height: 1.6;
     }
 
-    ul li {
+    .nosotros-imagen {
+      flex: 1;
+      min-width: 280px;
+    }
+
+    .nosotros-imagen img {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      animation: zoomIn 1s ease;
+    }
+
+    @keyframes zoomIn {
+      from { transform: scale(0.8); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    .mision-vision {
+      margin-top: 40px;
+    }
+
+    .mision-vision h2 {
+      text-align: center;
+      color: var(--verde-lima);
       margin-bottom: 10px;
+    }
+
+    .mision-vision p {
+      text-align: center;
+      font-size: 17px;
+      max-width: 800px;
+      margin: 10px auto 30px auto;
+      line-height: 1.6;
+    }
+
+    footer {
+      background-color: var(--verde-lima);
+      color: white;
+      text-align: center;
+      padding: 15px;
+      font-size: 14px;
+      margin-top: 40px;
+    }
+
+    @media (max-width: 768px) {
+      .contenido {
+        padding: 20px;
+      }
+
+      nav a {
+        display: inline-block;
+        margin: 6px 4px;
+      }
+
+      .nosotros-info {
+        flex-direction: column;
+      }
     }
   </style>
 </head>
@@ -72,8 +162,8 @@
     <div class="logo">Ciencia y Bienestar</div>
     <nav>
       <a href="index.html">Inicio</a>
-      <a href="habitos.html">Hábitos Saludables</a>
-      <a href="ciencia.html">Ciencia para la Vida</a>
+      <a href="habitos.html">Hábitos</a>
+      <a href="ciencia.html">Ciencia</a>
       <a href="apps.html">Apps</a>
       <a href="recursos.html">Recursos</a>
       <a href="nosotros.html" class="active">Nosotros</a>
@@ -81,19 +171,30 @@
     </nav>
   </header>
 
-  <div class="content">
-    <h1>Hábitos Saludables</h1>
-    <p>
-      Los hábitos saludables son conductas diarias que favorecen el bienestar físico y mental. Incluirlos en tu rutina puede marcar la diferencia en tu calidad de vida. A continuación, te presentamos algunos pilares fundamentales:
-    </p>
-    <ul>
-      <li><strong>Alimentación equilibrada:</strong> Consume frutas, verduras, cereales integrales y proteínas magras. Evita el exceso de azúcar, grasas saturadas y procesados.</li>
-      <li><strong>Actividad física:</strong> Realiza al menos 30 minutos de ejercicio moderado al día, como caminar, correr o practicar un deporte.</li>
-      <li><strong>Descanso adecuado:</strong> Dormir entre 7 y 8 horas cada noche es vital para que el cuerpo se recupere y funcione correctamente.</li>
-      <li><strong>Gestión del estrés:</strong> Practica técnicas de relajación, respiración o meditación para mantener una mente tranquila.</li>
-      <li><strong>Hidratación:</strong> Bebe suficiente agua durante el día. La hidratación es esencial para todos los procesos del cuerpo.</li>
-    </ul>
+  <div class="contenido">
+    <h1>¿Quiénes Somos?</h1>
+    <div class="nosotros-info">
+      <div class="nosotros-texto">
+        <p>Somos un equipo multidisciplinario de educadores, científicos, psicólogos y profesionales de la salud comprometidos con la formación integral de las personas a través del conocimiento científico aplicado al bienestar.</p>
+        <p>Nuestro propósito es ofrecer información accesible, confiable y motivadora que inspire a niños, jóvenes y familias a construir un estilo de vida saludable desde una perspectiva educativa.</p>
+      </div>
+      <div class="nosotros-imagen">
+        <img src="imagenes/nosotros.png" alt="Nuestro equipo">
+      </div>
+    </div>
+
+    <div class="mision-vision">
+      <h2>Misión</h2>
+      <p>Promover una cultura de bienestar basada en la ciencia, a través de herramientas educativas que desarrollen hábitos saludables, pensamiento crítico y responsabilidad personal.</p>
+
+      <h2>Visión</h2>
+      <p>Ser un referente en educación científica para la vida, fortaleciendo comunidades saludables, conscientes y resilientes.</p>
+    </div>
   </div>
+
+  <footer>
+    © 2025 Ciencia y Bienestar | Todos los derechos reservados.
+  </footer>
 
 </body>
 </html>

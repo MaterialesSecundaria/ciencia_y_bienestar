@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Hábitos Saludables</title>
+  <title>Contacto - Ciencia y Bienestar</title>
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
@@ -42,8 +42,8 @@
       border-radius: 5px;
     }
 
-    .content {
-      max-width: 1000px;
+    .container {
+      max-width: 700px;
       background-color: #fff;
       margin: 40px auto;
       padding: 40px;
@@ -53,16 +53,58 @@
 
     h1 {
       color: #2e7d32;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      margin-bottom: 12px;
+      font-weight: 500;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+    }
+
+    input, textarea {
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      margin-top: 6px;
       margin-bottom: 20px;
+      font-size: 16px;
+      font-family: inherit;
     }
 
-    ul {
-      padding-left: 20px;
-      font-size: 18px;
+    textarea {
+      resize: vertical;
+      min-height: 120px;
     }
 
-    ul li {
-      margin-bottom: 10px;
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 12px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #388e3c;
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        padding: 20px;
+        margin: 20px;
+      }
     }
   </style>
 </head>
@@ -81,19 +123,35 @@
     </nav>
   </header>
 
-  <div class="content">
-    <h1>Hábitos Saludables</h1>
-    <p>
-      Los hábitos saludables son conductas diarias que favorecen el bienestar físico y mental. Incluirlos en tu rutina puede marcar la diferencia en tu calidad de vida. A continuación, te presentamos algunos pilares fundamentales:
-    </p>
-    <ul>
-      <li><strong>Alimentación equilibrada:</strong> Consume frutas, verduras, cereales integrales y proteínas magras. Evita el exceso de azúcar, grasas saturadas y procesados.</li>
-      <li><strong>Actividad física:</strong> Realiza al menos 30 minutos de ejercicio moderado al día, como caminar, correr o practicar un deporte.</li>
-      <li><strong>Descanso adecuado:</strong> Dormir entre 7 y 8 horas cada noche es vital para que el cuerpo se recupere y funcione correctamente.</li>
-      <li><strong>Gestión del estrés:</strong> Practica técnicas de relajación, respiración o meditación para mantener una mente tranquila.</li>
-      <li><strong>Hidratación:</strong> Bebe suficiente agua durante el día. La hidratación es esencial para todos los procesos del cuerpo.</li>
-    </ul>
-  </div>
+  <div class="container">
+    <h1>Contáctanos</h1>
 
+    <form action="https://formspree.io/f/xanbnvjy" method="POST">
+      <label>
+        Nombre:
+        <input type="text" name="nombre" required>
+      </label>
+
+      <label>
+        Correo electrónico:
+        <input type="email" name="email" required>
+      </label>
+
+      <label>
+        Asunto:
+        <input type="text" name="asunto">
+      </label>
+
+      <label>
+        Tu mensaje:
+        <textarea name="message" required></textarea>
+      </label>
+
+      <button type="submit">Enviar mensaje</button>
+    </form>
+  </div>
+<div style="text-align: center; background-color: #e0e0e0; color: #333; padding: 10px; font-size: 13px;">
+  © 2025 Ciencia y Bienestar | Todos los derechos reservados.
+</div>
 </body>
 </html>
