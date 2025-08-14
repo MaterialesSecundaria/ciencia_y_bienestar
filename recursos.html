@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1,0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Recursos | Ciencia y Bienestar</title>
   <style>
     :root {
@@ -35,7 +35,7 @@
       border-bottom: 3px solid var(--verde-lima);
     }
 
-    ,logo {
+    .logo {
       font-size: 24px;
       font-weight: bold;
       color: var(--verde-oscuro);
@@ -49,19 +49,19 @@
       padding: 6px 12px;
     }
 
-    nav a:hover, nav a,active {
+    nav a:hover, nav a.active {
       background-color: var(--verde-oscuro);
       color: var(--blanco);
       border-radius: 5px;
     }
 
-    ,contenido {
+    .contenido {
       max-width: 1100px;
       margin: 40px auto;
       padding: 30px;
       background: white;
       border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0,1);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
       animation: fadeIn 1s ease;
     }
 
@@ -76,39 +76,91 @@
       color: var(--verde-oscuro);
     }
 
-    ,recurso-grid {
+    .recurso-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 20px;
       padding: 20px 0;
     }
 
-    ,recurso {
+    .recurso {
       background-color: var(--verde-pasto);
       color: white;
       padding: 20px;
       border-radius: 12px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0,15);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.15);
       text-align: center;
-      transition: transform 0,3s ease;
+      transition: transform 0.3s ease;
       cursor: pointer;
+      border: 2px solid #A3C94D;
+      background-color: #f9fdf4;
     }
 
-    ,recurso:hover {
-      transform: scale(1,05);
-      background-color: var(--verde-oscuro);
+    .recurso:hover {
+      transform: scale(1.05);
+      background-color: #eefad3;
     }
 
-    ,recurso h3 {
+    .recurso img {
+      width: 100%;
+      border-radius: 8px;
       margin-bottom: 10px;
     }
 
-    ,recurso a {
+    .recurso h3 {
+      color: #4CAF50;
+      margin-bottom: 10px;
+    }
+
+    .recurso a {
       color: white;
       text-decoration: underline;
     }
 
-    footer {
+    /* POPUP */
+    .popup-container {
+      position: fixed;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 90%;
+      max-width: 600px;
+      background-color: #ffffff;
+      border-top: 4px solid #8DC63F;
+      box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.2);
+      padding: 20px;
+      z-index: 9999;
+      display: none;
+      animation: slideUp 0.4s ease-out;
+      border-radius: 20px 20px 0 0;
+    }
+
+    .popup-content h2 {
+      margin-bottom: 10px;
+      color: #4CAF50;
+    }
+
+    .popup-content p {
+      font-size: 16px;
+      color: #333;
+      line-height: 1.5;
+    }
+
+    .popup-close {
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      font-size: 22px;
+      color: #888;
+      cursor: pointer;
+    }
+
+    @keyframes slideUp {
+      from { transform: translate(-50%, 100%); opacity: 0; }
+      to { transform: translate(-50%, 0); opacity: 1; }
+    }
+
+    footer, .copyright {
       background-color: var(--verde-lima);
       color: white;
       text-align: center;
@@ -116,177 +168,53 @@
       font-size: 14px;
       margin-top: 40px;
     }
-
-    @media (max-width: 768px) {
-      ,contenido {
-        padding: 20px;
-      }
-
-      nav a {
-        display: inline-block;
-        margin: 6px 4px;
-      }
-    }
-
-    ,recurso {
-  border: 2px solid #A3C94D;
-  border-radius: 10px;
-  padding: 20px;
-  margin-bottom: 20px;
-  background-color: #f9fdf4;
-  box-shadow: 0 4px 8px rgba(0,0,0,0,1);
-  cursor: pointer;
-  transition: all 0,3s ease;
-}
-
-,recurso:hover {
-  background-color: #eefad3;
-}
-
-,recurso img {
-  width: 100%;
-  border-radius: 8px;
-  margin-bottom: 10px;
-}
-
-,recurso h3 {
-  color: #4CAF50;
-  margin-bottom: 10px;
-}
-
-,info-oculta {
-  display: none;
-  margin-top: 10px;
-  font-size: 16px;
-  color: #333;
-  animation: fadeIn 0,5s ease-in-out;
-}
-
-,recurso,activo ,info-oculta {
-  display: block;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(-5px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-,popup-container {
-  position: fixed;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 90%;
-  max-width: 600px;
-  background-color: #ffffff;
-  border-top: 4px solid #8DC63F;
-  box-shadow: 0 -5px 15px rgba(0, 0, 0, 0,2);
-  padding: 20px;
-  z-index: 9999;
-  display: none;
-  animation: slideUp 0,4s ease-out;
-  border-radius: 20px 20px 0 0;
-}
-
-,popup-content h2 {
-  margin-bottom: 10px;
-  color: #4CAF50;
-}
-
-,popup-content p {
-  font-size: 16px;
-  color: #333;
-  line-height: 1,5;
-}
-
-,popup-close {
-  position: absolute;
-  top: 10px;
-  right: 20px;
-  font-size: 22px;
-  color: #888;
-  cursor: pointer;
-}
-
-@keyframes slideUp {
-  from {
-    transform: translate(-50%, 100%);
-    opacity: 0;
-  }
-  to {
-    transform: translate(-50%, 0);
-    opacity: 1;
-  }
-}
-
   </style>
 </head>
 <body>
 
-  <header>
-        <div class="logo">
-  <a href="intro,html" style="text-decoration: none; color: inherit;">Ciencia y Bienestar</a>
-</div>
-    <nav>
-      <a href="index,html">Inicio</a>
-      <a href="habitos,html">Hábitos Saludables</a>
-      <a href="ciencia,html">Ciencia para la Vida</a>
-      <a href="apps,html">Apps</a>
-      <a href="recursos,html" class="active">Recursos</a>
-      <a href="nosotros,html">Nosotros</a>
-      <a href="contacto,html">Contacto</a>
-    </nav>
-  </header>
+<header>
+  <div class="logo">
+    <a href="intro.html" style="text-decoration: none; color: inherit;">Ciencia y Bienestar</a>
+  </div>
+  <nav>
+    <a href="index.html">Inicio</a>
+    <a href="habitos.html">Hábitos Saludables</a>
+    <a href="ciencia.html">Ciencia para la Vida</a>
+    <a href="apps.html">Apps</a>
+    <a href="recursos.html" class="active">Recursos</a>
+    <a href="nosotros.html">Nosotros</a>
+    <a href="contacto.html">Contacto</a>
+  </nav>
+</header>
 
-  <div class="contenido">
-    <h1>Recursos Educativos y de Bienestar</h1>
-    <p style="text-align:center;">Explora materiales interactivos, guías, apps y más que te ayudarán a mejorar tu estilo de vida saludable con base en la ciencia,</p>
+<div class="contenido">
+  <h1>Recursos Educativos y de Bienestar</h1>
+  <p style="text-align:center;">Explora materiales interactivos, guías, apps y más que te ayudarán a mejorar tu estilo de vida saludable con base en la ciencia.</p>
 
-    <div class="recurso-grid"  onclick="mostrarInfo(this)">
-      <div class="recurso" onclick="mostrarPopup('Recurso 1', 'Aquí va la información detallada sobre este recurso, Puedes incluir explicación, beneficios o instrucciones,')">
-  <img src="imagenes/ico1,png" alt="Recurso 1">
-  <h3>Recurso 1</h3>
-  <p><a href="#">Descargar PDF</a></p>
-</div>
-      <div class="recurso"  onclick="mostrarPopup('App de Meditación', 'Aquí va la información detallada sobre este recurso, Puedes incluir explicación, beneficios o instrucciones,')"">
-        <img src="imagenes/ico2,png" alt="Recurso 1">
-        <h3>App de Meditación</h3>
-        <p><a href="#">Ir a la App</a></p>
-      </div>
-      <div class="recurso"  onclick="mostrarPopup('Videos de Ejercicio', 'Aquí va la información detallada sobre este recurso, Puedes incluir explicación, beneficios o instrucciones,')"">
-        <img src="imagenes/ico3,png" alt="Recurso 1">
-        <h3>Videos de Ejercicio</h3>
-        <p><a href="#">Ver en YouTube</a></p>
-      </div>
-      <div class="recurso"  onclick="mostrarPopup('Podcast de Bienestar', 'Aquí va la información detallada sobre este recurso, Puedes incluir explicación, beneficios o instrucciones,')"">
-        <img src="imagenes/ico4,png" alt="Recurso 1">
-        <h3>Podcast de Bienestar</h3>
-        <p><a href="#">Escuchar ahora</a></p>
-      </div>
-      <div class="recurso"  onclick="mostrarPopup('Infografía: Dormir Bien', 'Aquí va la información detallada sobre este recurso, Puedes incluir explicación, beneficios o instrucciones,')"">
-        <img src="imagenes/ico5,png" alt="Recurso 1">
-        <h3>Infografía: Dormir Bien</h3>
-        <p><a href="#">Descargar</a></p>
-      </div>
-      <div class="recurso"  onclick="mostrarPopup('Juegos para la mente', 'Aquí va la información detallada sobre este recurso, Puedes incluir explicación, beneficios o instrucciones,')"">
-        <img src="imagenes/ico6,png" alt="Recurso 1">
-        <h3>Juegos para la mente</h3>
-        <p><a href="#">Jugar en línea</a></p>
-      </div>
+  <div class="recurso-grid">
+    <div class="recurso" onclick="mostrarPopup('Recurso 1', 'Aquí va la información detallada sobre este recurso. Puedes incluir explicación, beneficios o instrucciones.')">
+      <img src="imagenes/ico1.png" alt="Recurso 1">
+      <h3>Recurso 1</h3>
+      <p><a href="#">Descargar PDF</a></p>
+    </div>
+    <div class="recurso" onclick="mostrarPopup('App de Meditación', 'Información sobre la app de meditación...')">
+      <img src="imagenes/ico2.png" alt="App de Meditación">
+      <h3>App de Meditación</h3>
+      <p><a href="#">Ir a la App</a></p>
+    </div>
+    <div class="recurso" onclick="mostrarPopup('Videos de Ejercicio', 'Detalles sobre videos de ejercicio...')">
+      <img src="imagenes/ico3.png" alt="Videos de Ejercicio">
+      <h3>Videos de Ejercicio</h3>
+      <p><a href="#">Ver en YouTube</a></p>
     </div>
   </div>
-
-<div class="copyright">
-  © 2025 Tecnologías Educativas | Todos los derechos reservados,
 </div>
 
-<script>
-  function mostrarInfo(elemento) {
-    elemento,classList,toggle('activo');
-  }
-</script>
+<div class="copyright">
+  © 2025 Tecnologías Educativas | Todos los derechos reservados.
+</div>
 
-
+<!-- POPUP -->
 <div id="popup" class="popup-container">
   <div class="popup-content">
     <span class="popup-close" onclick="cerrarPopup()">×</span>
@@ -297,13 +225,13 @@
 
 <script>
   function mostrarPopup(titulo, texto) {
-    document,getElementById("popup-titulo"),textContent = titulo;
-    document,getElementById("popup-texto"),textContent = texto;
-    document,getElementById("popup"),style,display = "block";
+    document.getElementById("popup-titulo").textContent = titulo;
+    document.getElementById("popup-texto").textContent = texto;
+    document.getElementById("popup").style.display = "block";
   }
 
   function cerrarPopup() {
-    document,getElementById("popup"),style,display = "none";
+    document.getElementById("popup").style.display = "none";
   }
 </script>
 
