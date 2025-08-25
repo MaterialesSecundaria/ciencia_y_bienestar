@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recursos - Ciencia y Bienestar</title>
+  <style>
+    :root {
+      --verde-lima: #8DC63F;
+      --verde-oscuro: #4CAF50;
+      --gris: #333;
+      --blanco: #fff;
+      --borde: #e6e6e6;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', system-ui, Arial, sans-serif;
+      color: var(--gris);
+      background: #f5f7f9;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      overflow: hidden; /* evita scroll innecesario */
+    }
+
+    header {
+      background: var(--blanco);
+      border-bottom: 3px solid var(--verde-lima);
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .logo a {
+      font-weight: 800;
+      font-size: 20px;
+      color: var(--verde-oscuro);
+      text-decoration: none;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    nav a {
+      text-decoration: none;
+      color: var(--gris);
+      font-weight: 600;
+      padding: 6px 12px;
+      border-radius: 8px;
+      transition: .2s;
+    }
+    nav a:hover, nav a.active {
+      background: var(--verde-lima);
+      color: #fff;
+    }
+
+    h1 {
+      text-align: center;
+      color: var(--verde-oscuro);
+      margin: 10px 0;
+    }
+
+    .btn-container {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 10px;
+    }
+
+    .pdf-btn {
+      background: var(--verde-lima);
+      color: #fff;
+      font-size: 16px;
+      font-weight: 700;
+      padding: 14px 24px;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pdf-btn::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: rgba(255,255,255,0.3);
+      transition: 0.4s;
+    }
+
+    .pdf-btn:hover::after { left: 100%; }
+    .pdf-btn:hover {
+      background: var(--verde-oscuro);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.25);
+    }
+
+    /* Visor ocupa absolutamente toda la ventana */
+    .viewer {
+      flex: 1;
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      border: none;
+      border-radius: 0;
+      background: #fff;
+    }
+
+    .viewer iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="logo">
+      <a href="index.html">Ciencia y Bienestar</a>
+    </div>
+    <nav>
+      <a href="intro.html">Inicio</a>
+      <a href="bases.html">Bases</a>
+      <a href="temario.html">Temario</a>
+      <a class="active" href="recursos.html">Recursos</a>
+      <a href="galeria.html">Galeria</a>
+    </nav>
+  </header>
+
+  <!-- Título -->
+  <h1>📂 Recursos Digitales</h1>
+
+  <!-- Botones -->
+  <div class="btn-container">
+    <button class="pdf-btn" onclick="mostrarPDF('documentos/1.PPT_HELICOCIENCIA 2025_BIO.pdf')">📘 Biología </button>
+    <button class="pdf-btn" onclick="mostrarPDF('documentos/2.PPT_HELICOCIENCIA 2025_QUI.pdf')">📗 Química</button>
+    <button class="pdf-btn" onclick="mostrarPDF('documentos/3.PPT_HELICOCIENCIA 2025_FIS.pdf')">📙 Física</button>
+    <button class="pdf-btn" onclick="mostrarPDF('documentos/4.LISTA_DE_COTEJO(ASESORIA).pdf')">📘 Lista de Cotejo </button>
+    <button class="pdf-btn" onclick="mostrarPDF('documentos/5.FICHAS_DE_REVISION.pdf')">📗 Ficha de Revisión</button>
+    <button class="pdf-btn" onclick="mostrarPDF('documentos/6.LISTA_DE_GRUPOS.pdf')">📙 Lista de Grupos</button>
+    <button class="pdf-btn" onclick="mostrarPDF('documentos/7.MODELO_DE_TRIPTICO.pdf')">📘 Modelo de Triptico </button>
+    <button class="pdf-btn" onclick="mostrarPDF('documentos/PPT_HELICOCIENCIA 2025_QUI.pdf')">📗 Lista de Cotejo (Presentación Final)</button>
+  </div>
+
+  <!-- Visor de PDF -->
+  <div class="viewer" id="visor">
+    <iframe src=""></iframe>
+  </div>
+
+  <script>
+    function mostrarPDF(ruta) {
+      document.querySelector("#visor iframe").src = ruta;
+    }
+  </script>
+
+</body>
+</html>
