@@ -12,121 +12,124 @@
       --blanco: #fff;
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    *{box-sizing:border-box;margin:0;padding:0}
 
     body {
-      font-family: 'Segoe UI', system-ui, Arial, sans-serif;
-      background: #f5f7f9;
-      color: var(--gris);
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
+      font-family:'Segoe UI', system-ui, Arial, sans-serif;
+      color:var(--gris);
+      background:#f5f7f9;
+      display:flex;
+      flex-direction:column;
+      min-height:100vh;
     }
 
     header {
-      background: var(--blanco);
-      border-bottom: 3px solid var(--verde-lima);
-      padding: 14px 20px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      position: sticky;
-      top: 0;
-      z-index: 10;
+      background:var(--blanco);
+      border-bottom:3px solid var(--verde-lima);
+      padding:14px 20px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      position:sticky;
+      top:0;
+      z-index:10;
     }
 
     .logo a {
-      font-weight: 800;
-      font-size: 20px;
-      color: var(--verde-oscuro);
-      text-decoration: none;
+      font-weight:800;
+      font-size:20px;
+      color:var(--verde-oscuro);
+      text-decoration:none;
     }
 
     nav {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
     }
     nav a {
-      text-decoration: none;
-      color: var(--gris);
-      font-weight: 600;
-      padding: 6px 12px;
-      border-radius: 8px;
-      transition: .2s;
+      text-decoration:none;
+      color:var(--gris);
+      font-weight:600;
+      padding:6px 12px;
+      border-radius:8px;
+      transition:.2s;
     }
     nav a:hover, nav a.active {
-      background: var(--verde-lima);
-      color: #fff;
+      background:var(--verde-lima);
+      color:#fff;
     }
 
     h1 {
-      text-align: center;
-      color: var(--verde-oscuro);
-      margin: 30px 0 20px;
-      font-size: 28px;
+      text-align:center;
+      color:var(--verde-oscuro);
+      margin:30px 0 20px;
     }
 
     /* Galería */
-    .galeria {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-      padding: 20px;
-      max-width: 1200px;
-      margin: auto;
+    .galeria-container {
+      flex:1;
+      max-width:1100px;
+      width:100%;
+      margin:0 auto 30px;
+      padding:0 15px;
+      display:flex;
+      flex-direction:column;
+      gap:20px;
     }
 
-    .galeria-item {
-      position: relative;
-      overflow: hidden;
-      border-radius: 12px;
-      box-shadow: 0 6px 14px rgba(0,0,0,0.2);
-      cursor: pointer;
+    .visor {
+      width:100%;
+      height:500px;
+      background:#000;
+      border-radius:12px;
+      overflow:hidden;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      box-shadow:0 8px 18px rgba(0,0,0,0.2);
     }
 
-    .galeria-item img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.5s ease;
-      display: block;
+    .visor img {
+      max-width:100%;
+      max-height:100%;
+      object-fit:contain;
+      transition:opacity 0.5s ease;
     }
 
-    .galeria-item:hover img {
-      transform: scale(1.1);
+    .miniaturas {
+      display:flex;
+      justify-content:center;
+      gap:12px;
+      flex-wrap:wrap;
     }
 
-    /* Overlay animado */
-    .overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.5);
-      color: #fff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 18px;
-      font-weight: 700;
-      opacity: 0;
-      transition: opacity 0.4s ease;
+    .miniaturas img {
+      width:140px;
+      height:100px;
+      object-fit:cover;
+      border-radius:10px;
+      cursor:pointer;
+      transition:transform 0.3s, box-shadow 0.3s;
     }
-
-    .galeria-item:hover .overlay {
-      opacity: 1;
+    .miniaturas img:hover {
+      transform:scale(1.05);
+      box-shadow:0 6px 12px rgba(0,0,0,0.3);
     }
 
     footer {
-      background: var(--verde-lima);
-      color: #fff;
-      text-align: center;
-      font-size: 14px;
-      padding: 12px;
-      margin-top: auto;
+      background:var(--verde-lima);
+      color:#fff;
+      text-align:center;
+      font-size:14px;
+      padding:12px;
+    }
+
+    /* Responsive */
+    @media(max-width:768px) {
+      .visor { height:300px; }
+      .miniaturas img { width:100px; height:70px; }
     }
   </style>
 </head>
@@ -135,10 +138,10 @@
   <!-- Header -->
   <header>
     <div class="logo">
-      <a href="intro.html">Ciencia y Bienestar</a>
+      <a href="index.html">Ciencia y Bienestar</a>
     </div>
     <nav>
-      <a href="index.html">Inicio</a>
+      <a href="intro.html">Inicio</a>
       <a href="bases.html">Bases</a>
       <a href="temario.html">Temario</a>
       <a href="recursos.html">Recursos</a>
@@ -147,33 +150,24 @@
   </header>
 
   <!-- Título -->
-  <h1>🌿 Galería de Ciencia y Bienestar</h1>
+  <h1>🖼️ Galería de Imágenes</h1>
 
   <!-- Galería -->
-  <div class="galeria">
-    <div class="galeria-item">
-      <img src="https://source.unsplash.com/600x400/?nature,health" alt="Imagen 1">
-      <div class="overlay">Naturaleza y Salud</div>
-    </div>
-    <div class="galeria-item">
-      <img src="https://source.unsplash.com/600x400/?science,experiment" alt="Imagen 2">
-      <div class="overlay">Experimentos</div>
-    </div>
-    <div class="galeria-item">
-      <img src="https://source.unsplash.com/600x400/?food,healthy" alt="Imagen 3">
-      <div class="overlay">Alimentación Saludable</div>
-    </div>
-    <div class="galeria-item">
-      <img src="https://source.unsplash.com/600x400/?technology,innovation" alt="Imagen 4">
-      <div class="overlay">Tecnología y Ciencia</div>
-    </div>
-    <div class="galeria-item">
-      <img src="https://source.unsplash.com/600x400/?biology,plants" alt="Imagen 5">
-      <div class="overlay">Biología</div>
-    </div>
-    <div class="galeria-item">
-      <img src="https://source.unsplash.com/600x400/?physics,energy" alt="Imagen 6">
-      <div class="overlay">Física</div>
+  <div class="galeria-container"> <div class="visor"> <img
+  id="imagen-principal" src="imagenes1/img/img1.jpg" alt="Imagen principal">
+  </div>
+
+    <div class="miniaturas">
+      <img src="imagenes1/img/img1.jpg" onclick="cambiarImagen(this.src)" alt="Miniatura 1">
+      <img src="imagenes1/img/img2.jpg" onclick="cambiarImagen(this.src)" alt="Miniatura 2">
+      <img src="imagenes1/img/img3.jpg" onclick="cambiarImagen(this.src)" alt="Miniatura 3">
+      <img src="imagenes1/img/img4.jpg" onclick="cambiarImagen(this.src)" alt="Miniatura 4">
+      <img src="imagenes1/img/img5.jpg" onclick="cambiarImagen(this.src)" alt="Miniatura 5">
+      <img src="imagenes1/img/img6.jpg" onclick="cambiarImagen(this.src)" alt="Miniatura 6">
+      <img src="imagenes1/img/img7.jpg" onclick="cambiarImagen(this.src)" alt="Miniatura 7">
+      <img src="imagenes1/img/img8.jpg" onclick="cambiarImagen(this.src)" alt="Miniatura 8">
+      <img src="imagenes1/img/img9.jpg" onclick="cambiarImagen(this.src)" alt="Miniatura 9">
+      <img src="imagenes1/img/img10.jpg" onclick="cambiarImagen(this.src)" alt="Miniatura 10">
     </div>
   </div>
 
@@ -181,6 +175,17 @@
   <footer>
     © 2025 Ciencia y Bienestar | Todos los derechos reservados.
   </footer>
+
+  <script>
+    function cambiarImagen(ruta) {
+      const imagen = document.getElementById("imagen-principal");
+      imagen.style.opacity = 0;
+      setTimeout(() => {
+        imagen.src = ruta;
+        imagen.style.opacity = 1;
+      }, 300);
+    }
+  </script>
 
 </body>
 </html>

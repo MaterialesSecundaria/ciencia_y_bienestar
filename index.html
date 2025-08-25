@@ -3,96 +3,137 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Ciencia y Bienestar</title>
+  <title>HELICOCIENCIA 2025</title>
   <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #f0f4f8;
+
+:root {
+      --verde-lima: #8DC63F;
+      --verde-pasto: #A3C94D;
+      --verde-oscuro: #4CAF50;
+      --gris-texto: #333;
+      --blanco: #ffffff;
+      --fondo: #f0f9f0;
+    }
+
+    * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
 
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--fondo);
+      color: var(--gris-texto);
+    }
+
     header {
-      background-color: #fff;
+      background-color: var(--blanco);
       padding: 20px 40px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 2px solid #ccc;
-      flex-wrap: wrap;
+      border-bottom: 3px solid var(--verde-lima);
     }
 
     .logo {
-      font-weight: bold;
       font-size: 24px;
-      color: #4CAF50;
-    }
-
-    nav {
-      display: flex;
-      flex-wrap: wrap;
+      font-weight: bold;
+      color: var(--verde-oscuro);
     }
 
     nav a {
       text-decoration: none;
-      color: #333;
-      margin: 5px 10px;
+      color: var(--gris-texto);
+      margin: 0 10px;
       font-weight: 500;
       padding: 6px 12px;
+    }
+
+    nav a:hover, nav a.active {
+      background-color: var(--verde-oscuro);
+      color: var(--blanco);
       border-radius: 5px;
     }
 
-    nav a.active,
-    nav a:hover {
-      background-color: #4CAF50;
-      color: #fff;
+    .contenido {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 30px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      animation: fadeIn 1s ease;
     }
 
-    .content {
-      max-width: 1000px;
-      background-color: #fff;
-      margin: 40px auto;
-      padding: 40px 20px;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     h1 {
-      color: #2e7d32;
-      margin-bottom: 20px;
       text-align: center;
-    }
-
-    p {
-      font-size: 18px;
-      line-height: 1.6;
       margin-bottom: 20px;
-      text-align: justify;
+      color: var(--verde-oscuro);
     }
 
-    /* VIDEO RESPONSIVE */
-    .video-container {
-      position: relative;
+    .nosotros-info {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      align-items: center;
+      justify-content: center;
+      margin-top: 30px;
+    }
+
+    .nosotros-texto {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .nosotros-texto p {
+      font-size: 18px;
+      margin-bottom: 15px;
+      line-height: 1.6;
+    }
+
+    .nosotros-imagen {
+      flex: 1;
+      min-width: 280px;
+    }
+
+    .nosotros-imagen img {
       width: 100%;
-      padding-bottom: 56.25%; /* 16:9 */
-      height: 0;
-      overflow: hidden;
       border-radius: 12px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-      margin: 20px 0;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      animation: zoomIn 1s ease;
     }
 
-    .video-container iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border: none;
+    @keyframes zoomIn {
+      from { transform: scale(0.8); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
     }
 
-    .copyright {
-      background: #4CAF50;
+    .mision-vision {
+      margin-top: 40px;
+    }
+
+    .mision-vision h2 {
+      text-align: center;
+      color: var(--verde-lima);
+      margin-bottom: 10px;
+    }
+
+    .mision-vision p {
+      text-align: center;
+      font-size: 17px;
+      max-width: 800px;
+      margin: 10px auto 30px auto;
+      line-height: 1.6;
+    }
+
+    footer {
+      background-color: var(--verde-lima);
       color: white;
       text-align: center;
       padding: 15px;
@@ -101,35 +142,50 @@
     }
 
     @media (max-width: 768px) {
-      header {
-        flex-direction: column;
-        text-align: center;
-      }
-
-      nav {
-        justify-content: center;
-        flex-wrap: wrap;
-      }
-
-      .content {
-        margin: 20px;
+      .contenido {
         padding: 20px;
       }
 
-      p {
-        font-size: 16px;
+      nav a {
+        display: inline-block;
+        margin: 6px 4px;
+      }
+
+      .nosotros-info {
+        flex-direction: column;
       }
     }
+
+    /* HERO (imagen central, sin recorte) */
+    .hero {
+      margin-top: 60px; /* espacio para el header fijo */
+      height: calc(100vh - 100px);
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: justify-content;
+      background: #f5f7f9;
+    }
+
+    .hero img {
+      max-width: 150%;   /* ancho máximo (no pasa de la pantalla) */
+      max-height: 90%;  /* alto máximo (no pasa de la pantalla) */
+      object-fit: contain; /* asegura que no se recorte */
+      border-radius: 10px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+    }
+
   </style>
 </head>
 <body>
 
+  <!-- HEADER -->
   <header>
-    <div class="logo">
-      <a href="intro.html" style="text-decoration: none; color: inherit;">Ciencia y Bienestar</a>
-    </div>
+        <div class="logo">
+  <a href="index.html" style="text-decoration: none; color: inherit;">Ciencia y Bienestar</a>
+</div>
     <nav>
-      <a href="index.html" class="active">Inicio</a>
+      <a href="intro.html">Inicio</a>
       <a href="bases.html">Bases</a>
       <a href="temario.html">Temario</a>
       <a href="recursos.html">Recursos</a>
@@ -137,27 +193,11 @@
     </nav>
   </header>
 
-  <div class="content">
-    <h1>Bienvenidos a Ciencia y Bienestar</h1>
+  <!-- IMAGEN -->
+  <section class="hero">
+    <img src="imagenes1/helicociencia.jpg" alt="Ciencia y Bienestar">
+  </section>
 
-    <!-- VIDEO EN EL CENTRO -->
-    <div class="video-container">
-      <iframe src="https://www.youtube.com/embed/ahXbe6CvmQw" 
-              title="Video de Ciencia y Bienestar"
-              allowfullscreen></iframe>
-    </div>
-
-    <p>
-      En este espacio encontrarás información valiosa y actualizada sobre cómo la ciencia puede ayudarte a construir un estilo de vida saludable. Nuestro objetivo es acercarte al conocimiento científico de una manera clara y útil para que puedas tomar decisiones informadas sobre tu salud física, mental y emocional.
-    </p>
-    <p>
-      Creemos que el bienestar no es un destino, sino un camino que se construye con hábitos, educación y conciencia. Acompáñanos en este recorrido hacia una vida más equilibrada, activa y feliz.
-    </p>
-  </div>
-
-  <div class="copyright">
-    © 2025 Tecnologías Educativas | Todos los derechos reservados.
-  </div>
 
 </body>
 </html>
