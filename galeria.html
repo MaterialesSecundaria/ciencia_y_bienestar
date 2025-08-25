@@ -92,12 +92,12 @@
     }
 
     .visor img {
-      max-width:100%;
-      max-height:100%;
-      object-fit:contain;
-      transition:opacity 0.5s ease;
-    }
-
+  width:120%;
+  height:140%;
+  object-fit:contain; /* 🔹 ajusta dentro del cuadro sin recortar */
+  transition:opacity 0.5s ease;
+  background:#000; /* opcional: fondo negro para los espacios vacíos */
+}
     .miniaturas {
       display:flex;
       justify-content:center;
@@ -153,9 +153,10 @@
   <h1>🖼️ Galería de Imágenes</h1>
 
   <!-- Galería -->
-  <div class="galeria-container"> <div class="visor"> <img
-  id="imagen-principal" src="imagenes1/img/img1.jpg" alt="Imagen principal">
-  </div>
+  <div class="galeria-container">
+    <div class="visor">
+      <img id="imagen-principal" src="imagenes1/img/img1.jpg" alt="Imagen principal">
+    </div>
 
     <div class="miniaturas">
       <img src="imagenes1/img/img1.jpg" onclick="cambiarImagen(this.src)" alt="Miniatura 1">
@@ -177,14 +178,22 @@
   </footer>
 
   <script>
+    const imagen = document.getElementById("imagen-principal");
+    const miniaturas = document.querySelectorAll(".miniaturas img");
+
     function cambiarImagen(ruta) {
-      const imagen = document.getElementById("imagen-principal");
       imagen.style.opacity = 0;
       setTimeout(() => {
         imagen.src = ruta;
         imagen.style.opacity = 1;
       }, 300);
     }
+
+    // 🔹 Cambio aleatorio cada 5 segundos
+    setInterval(() => {
+      const randomIndex = Math.floor(Math.random() * miniaturas.length);
+      cambiarImagen(miniaturas[randomIndex].src);
+    }, 5000);
   </script>
 
 </body>
