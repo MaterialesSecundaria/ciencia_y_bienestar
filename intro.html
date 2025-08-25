@@ -18,14 +18,17 @@
 
     /* HEADER */
     header {
-      background-color: #fff;
-      padding: 20px 40px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 2px solid #ccc;
-      flex-wrap: wrap;
-    }
+  background:#fff;
+  border-bottom:3px solid #8DC63F; /* mismo verde lima */
+  padding:14px 20px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  position:sticky;
+  top:0;
+  z-index:10;
+}
 
     .logo {
       font-weight: bold;
@@ -38,15 +41,14 @@
       flex-wrap: wrap;
     }
 
-    nav a {
-      text-decoration: none;
-      color: #333;
-      margin: 5px 10px;
-      font-weight: 500;
-      padding: 6px 12px;
-      border-radius: 5px;
-      transition: background 0.3s;
-    }
+nav a {
+  text-decoration:none;
+  color:#333;
+  font-weight:600;
+  padding:6px 12px;
+  border-radius:8px;
+  transition:0.2s;
+}
 
     nav a.active,
     nav a:hover {
@@ -119,18 +121,11 @@
 <body>
 
   <!-- HEADER -->
-  <header>
-    <div class="logo">
-      <a href="index.html" style="text-decoration: none; color: inherit;">Ciencia y Bienestar</a>
-    </div>
-    <nav>
-      <a href="intro.html" class="active">Inicio</a>
-      <a href="bases.html">Bases</a>
-      <a href="temario.html">Temario</a>
-      <a href="recursos.html">Recursos</a>
-      <a href="galeria.html">Galería</a>
-    </nav>
-  </header>
+  <header> <div class="logo"> <a href="index.html" style="text-decoration:
+  none; color: inherit;">Ciencia y Bienestar</a> </div> <nav> <a
+  href="intro.html" class="active">Inicio</a> <a href="bases.html">Bases</a>
+  <a href="temario.html">Temario</a> <a href="recursos.html">Recursos</a> <a
+  href="galeria.html">Galería</a> </nav> </header>
 
   <!-- CONTENIDO -->
   <h1>Bienvenidos a la Helicociencia 2025</h1>
