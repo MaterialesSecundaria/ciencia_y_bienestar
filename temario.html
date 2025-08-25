@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TEMARIO HELICOCIENCIA 2025</title>
+  <style>
+
+        :root{
+      --verde-lima:#8DC63F;
+      --verde-oscuro:#4CAF50;
+      --gris:#333;
+      --blanco:#fff;
+      --borde:#e6e6e6;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+
+    html, body{
+      height:100%;
+      font-family:'Segoe UI', system-ui, -apple-system, Arial, sans-serif;
+      color:var(--gris);
+      background:#f5f7f9;
+    }
+
+    /* Layout principal */
+    body{
+      display:flex;
+      flex-direction:column;
+      min-height:100vh;
+    }
+
+    header{
+      background:var(--blanco);
+      border-bottom:3px solid var(--verde-lima);
+      padding:14px 20px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      position:sticky;
+      top:0;
+      z-index:10;
+    }
+
+    .logo a{
+      font-weight:800;
+      font-size:20px;
+      color:var(--verde-oscuro);
+      text-decoration:none;
+      letter-spacing:.2px;
+    }
+
+    nav{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+    }
+    nav a{
+      text-decoration:none;
+      color:var(--gris);
+      font-weight:600;
+      padding:6px 12px;
+      border-radius:8px;
+      transition:.2s;
+    }
+    nav a:hover, nav a.active{
+      background:var(--verde-lima);
+      color:#fff;
+    }
+
+    /* Contenedor del visor */
+    .viewer-wrap{
+      flex:1;                 /* ocupa todo el alto disponible entre header y footer */
+      display:flex;
+      flex-direction:column;
+      max-width:1600px;
+      width:100%;
+      margin:0 auto;
+      padding:12px;
+      gap:12px;
+    }
+
+    .viewer-head{
+      background:linear-gradient(90deg,#eaf7d6,#ffffff);
+      border:1px solid var(--borde);
+      border-radius:12px;
+      padding:12px 14px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      box-shadow:0 4px 10px rgba(0,0,0,.04);
+    }
+    .viewer-head h1{
+      font-size:18px;
+      color:#2b6e3f;
+      font-weight:800;
+    }
+    .viewer-actions{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+    }
+    .btn{
+      appearance:none;
+      border:1px solid var(--verde-oscuro);
+      background:#fff;
+      color:var(--verde-oscuro);
+      padding:6px 10px;
+      border-radius:10px;
+      font-weight:700;
+      font-size:14px;
+      text-decoration:none;
+      cursor:pointer;
+      transition:.2s;
+    }
+    .btn:hover{background:var(--verde-oscuro);color:#fff}
+
+    .viewer{
+      flex:1;                 /* que el iframe use todo el espacio restante */
+      border:1px solid var(--borde);
+      border-radius:12px;
+      overflow:hidden;
+      box-shadow:0 10px 24px rgba(0,0,0,.06);
+      background:#fff;
+      min-height:300px;       /* fallback en pantallas muy pequeñas */
+    }
+
+    /* Iframe a pantalla disponible */
+    .viewer iframe{
+      width:100%;
+      height:100%;
+      border:0;
+      display:block;
+    }
+
+    footer, .copyright{
+      background:var(--verde-lima);
+      color:#fff;
+      text-align:center;
+      font-size:14px;
+      padding:12px;
+    }
+
+    /* Responsivo */
+    @media (max-width:768px){
+      header{padding:12px}
+      .viewer-head h1{font-size:16px}
+      nav a{font-size:14px}
+    }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f9f9f9;
+      margin: 0;
+      padding: 20px;
+      color: #333;
+    }
+
+    h1 {
+      text-align: center;
+      color: #2e7d32;
+      margin-bottom: 30px;
+    }
+
+    .tabla-grados {
+       margin: 30px auto;
+  max-width: 1100px;
+  border: 3px solid #333;
+  border-radius: 8px;
+  overflow-x: auto;   /* ✅ scroll horizontal si se necesita */
+  overflow-y: visible;/* ✅ deja que crezca verticalmente */
+  background: white;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  max-height: 80vh;   /* ✅ limita altura a la ventana */
+    }
+
+    .tabla-grados {
+  overflow-y: auto;  /* ✅ activa scroll vertical */
+}
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: center;
+    }
+
+    th {
+      background-color: #f0f8e1;
+      font-weight: bold;
+      border: 1px solid #333;
+      padding: 12px;
+      color: #2e7d32;
+      text-transform: uppercase;
+    }
+
+    td {
+      border: 1px solid #999;
+      padding: 12px;
+      font-size: 15px;
+    }
+
+    .subtitulo {
+      background-color: #b3e5fc; /* Azul clarito */
+      font-weight: bold;
+      color: #01579b;
+      text-transform: uppercase;
+      text-align: center;
+      font-size: 16px;
+    }
+
+    thead th {
+  background-color: #f0f8e1;
+  font-weight: bold;
+  border: 1px solid #333;
+  padding: 12px;
+  color: #2e7d32;
+  text-transform: uppercase;
+  position: sticky;
+  top: 0;           /* se queda pegado arriba */
+  z-index: 10;      /* asegura que quede sobre las demás filas */
+}
+
+    /* Responsivo */
+    @media (max-width: 768px) {
+      td, th {
+        font-size: 13px;
+        padding: 8px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+    <!-- Header con menú -->
+  <header>
+    <div class="logo">
+      <a href="intro.html">Ciencia y Bienestar</a>
+    </div>
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="bases.html">Bases</a>
+      <a href="temario.html">Temario</a>
+      <a href="apps.html">Apps</a>
+      <a href="recursos.html">Recursos</a>
+      <a href="galeria.html">Galeria</a>
+    </nav>
+  </header>
+
+  <h1>TEMARIO HELICOCIENCIA 2025</h1>
+
+  <div class="tabla-grados">
+    <table>
+      <thead>
+        <tr>
+          <th>1.º DE SECUNDARIA</th>
+          <th>2.º DE SECUNDARIA</th>
+          <th>3.º DE SECUNDARIA</th>
+          <th>4.º DE SECUNDARIA</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Física -->
+        <tr>
+          <td colspan="4" class="subtitulo">FÍSICA</td>
+        </tr>
+        <tr>
+          <td><strong>¿Cómo medimos la salud?</strong><br>A.Construir termómetros caseros de agua o alcohol.
+B.Construir una balanza de agua. D.Construir una cinta métrica.</td>
+          <td><strong>¿Cuánto caminamos?</strong><br>A. Realizar un experimento donde se mida el tiempo que tardan 5 personas en caminar distancias de 10 m, 20 m, 40 m, 80 m y 100 m. Seguidamente, colocar en un registro la masa, altura, distancia y tiempo de duración de la caminata.</td>
+          <td><strong>Bicicleta como máquina simple</strong><br>A.Experimento cambiar la rueda, engranaje o palanca en una bicicleta y analizar los efectos producidos en el ciclista.</td>
+          <td><strong>Presión sanguínea e hidrodinámica</strong><br>A. Simulación de presión arterial</td>
+        </tr>
+        <tr>
+          <td><strong>Temperatura corporal en acción</strong><br>A.Realizar un experimento registrando temperatura antes y después de ejercitarse (correr, bicicleta o abdominales).</td>
+          <td><strong>Ritmo cardíaco y ejercicio</strong><br>A.Realizar un experimento registrando temperatura antes y después de ejercitarse (correr, bicicleta o abdominales) en diferentes partes del cuerpo (cabeza, abdomen, manos y pies).</td>
+          <td><strong>Rendimiento energético en saltos</strong><br>A.Medir altura de salto y estimar energía usando fórmulas. Para analizar considerar que los músculos son resortes.</td>
+          <td><strong>Sonido y concentración</strong><br>A.Experimento grupal de resolución de ejercicios.</td>
+        </tr>
+        <tr>
+          <td><strong>Equilibrio y masa corporal</strong><br>A.Maqueta con muñecos articulados y demostrar cómo cambian el centro de masa.</td>
+          <td><strong>Ondas y sonido en el ambiente</strong><br>A.Medición de eco y reverberación con grabaciones en distintos espacios.</td>
+          <td><strong>Máquinas simples en ejercicios</strong><br>A. Maqueta con fulcro, resistencia y fuerza.</td>
+          <td><strong>Termodinámica del cuerpo</strong><br>A. Experimento luego de correr 100 m medir el tiempo que tarda el cuerpo alcanzar su temperatura de equilibrio.</td>
+        </tr>
+        <tr>
+          <td><strong>Sonido y salud: volumen y audición</strong><br>A.Experimento midiendo nivel de sonido en decibeles con app móvil en distintos entornos escolares.</td>
+          <td><strong>Análisis de fuerza en balones al lanzar</strong><br>A.Realizar un experimento de lanzar balones, calculando velocidad inicial y ángulo usando el programa Tracker.</td>
+          <td><strong>Eficiencia de recursos físicos</strong><br>A.Registro de duración, distancia y estimación calórica; análisis comparativo.</td>
+          <td><strong>Radiación y salud</strong><br>A. Medidor UV y análisis de protección solar.</td>
+        </tr>
+
+        <!-- Química -->
+        <tr>
+          <td colspan="4" class="subtitulo">QUÍMICA</td>
+        </tr>
+        </tr><td><strong>Impacto de los aditivos y conservantes en la salud</strong><br>A.
+Efectos de los aditivos alimentarios en la salud humana.<br>
+B.
+Impacto ambiental de la producción y uso de aditivos químicos</td>
+          <td><strong>Composición química de los alimentos y su efecto en el organismo.</strong><br>A.
+Análisis de carbohidratos, proteínas y lípidos: composición química y papel energético/estructural.<br>
+B.
+Efectos de los compuestos alimentarios en procesos fisiológicos.</td>
+          <td><strong>Reacciones químicas en la digestión y metabolismo de los nutrientes</strong><br>A.
+Procesos químicos en la digestión de carbohidratos, proteínas y lípidos.<br>
+B.
+Reacciones metabólicas para la obtención de energía síntesis de compuestos</td>
+          <td><strong>Equilibrio ácido-base en el cuerpo y su relación con la alimentación</strong><br>A.
+Mecanismos químicos de regulación del pH en el organismo.<br>
+B.
+Influencia de la dieta en el equilibrio ácido - base.</td>
+        </tr>
+        <tr>
+          <td><strong>Plásticos y su impacto en la salud</strong><br>A.
+Efectos de la exposición a microplásticos en el organismo humano.<br>
+B.
+Riesgos asociados a aditivos compuestos liberados por plásticos.</td>
+          <td><strong>Fermentación y sus beneficios para la salud</strong><br>A.
+Procesos químicos de la fermentación y formación de compuestos bioactivos.<br>
+B.
+Impacto de los alimentos fermentados en la salud humana.</td>
+          <td><strong>Oxidación y an</strong><br>A.
+Procesos de oxidación de los alimentos y sus consecuencias.<br>
+B.
+Rol de los antioxidantes naturales y sintéticos en la salud y conservación de los alimentos.</td>
+          <td><strong>pH en los alimentos y su impacto en el organismo</strong><br>A.
+Variación del pH en diferentes alimentos y su influencia en la conservación y sabor.<br>
+B.
+Efectos del pH de los alimentos en la digestión y la salud.</td>
+        </tr>
+        <tr>
+          <td><strong>Química de los medicamentos y suplementos: ¿Son realmente necesarios?</strong><br>A.
+Principios activos e interacción química en el organismo.<br>
+B.
+Suplementos alimenticios: composición química, eficacia real.</td>
+          <td><strong>Comparación de alimentos procesados vs. Naturales</strong><br>A.
+Valor nutricional de los alimentos naturales vs. los procesados.<br>
+B.
+Impacto en la salud del consumo de alimentos procesados.</td>
+          <td><strong>Mecanismos químicos detrás del envejecimiento celular y cómo contrarrestarlos</strong><br>A.
+Procesos químicos responsables del envejecimiento celular.<br>
+B.
+Estrategias químicas nutricionales para prolongar el envejecimiento.</td>
+          <td><strong>Ácidos y bases en la dieta y su relación con enfermedades metabólicas</strong><br>A.
+Carga ácida de la dieta y su influencia en el equilibrio metabólico.<br>
+B.
+Papel de los alimentos alcalinizantes en la prevención de enfermedades.</td>
+        </tr>
+        <tr>
+          <td><strong>Composición química de las frutas y sus beneficios en la salud.</strong><br>A.
+Componentes bioactivos presentes en las frutas.<br>
+B.
+Beneficios de los compuestos de las frutas en la prevención de enfermedades.</td>
+          <td><strong>Identificación de los elementos químicos en productos de la vida diaria.</strong><br>A.
+Presencia de elementos químicos en productos domésticos personales.<br>
+B.
+Métodos de identificación y análisis de elementos químicos.</td>
+          <td><strong>Reacciones químicas en la cocción de los alimentos</strong><br>A.
+Cambios químicos durante la cocción y su efecto en el valor nutricional.<br>
+B.
+Reacciones químicas responsables del aroma, color y textura en los alimentos cocinados.</td>
+          <td><strong>Cambios estructurales en proteínas, carbohidratos y grasas al cocinar.</strong><br>A.
+Transformaciones químicas y estructurales de macronutrientes durante la cocción.<br>
+B.
+Impacto de los cambios estructurales en la calidad y valor nutritivo de los alimentos.</td>
+        </tr>
+
+        <!-- Biología -->
+        <tr>
+          <td colspan="4" class="subtitulo">BIOLOGÍA</td>
+        </tr>
+        <tr>
+          <td><strong>Plantas Medicinales</strong><br>A.
+Tratamiento de enfermedades microbianas con plantas medicinales
+B.
+Tratamiento y prevención de la anemia a través plantas medicinales
+C.
+Tratamiento y prevención de enfermedades del hígado con plantas medicinales
+D.
+Seguridad en el uso de plantas medicinales (riesgos de la automedicación con plantas medicinales)</td>
+          <td><strong>Prevención de enfermedades causadas por helmintos y fortalecimiento del sistema inmunológico</strong><br>A.
+Higiene personal y comunitaria para prevenir parásitos intestinales
+B.
+Manejo y lavado correcto de los alimentos: ciencia y prevención
+C.
+Alimentación que fortalece el sistema inmunológico</td>
+          <td><strong>Sistema endocrino: el lenguaje químico del cuerpo y su influencia en la salud</strong><br>A.
+La glándula tiroides y su impacto en el aprendizaje y el estado de ánimo
+B.
+La insulina y el equilibrio del azúcar en la sangre
+C.
+Hormonas y emociones: una conexión poderosa
+D.
+Endocrinología ambiental: cómo el entorno afecta nuestras hormonas</td>
+          <td><strong>Tecnología, metabolismo y salud en la vida moderna</strong><br>A.
+Impacto del uso diario de la tecnología en la salud humana
+B.
+Uso excesivo de tecnología y enfermedades metabólicas
+<strong>Enfermedades metaxénicas: prevención, ciencia y biotecnología</strong><br>A.
+Prevención comunitaria y estrategias de control del vector
+B.
+Biotecnología en la lucha contra enfermedades metaxénicas</td>
+        </tr>
+        <tr>
+          <td><strong>Frutos y sus beneficios</strong><br>A.
+Beneficios del consumo de frutos cítricos en el sistema inmunológico.
+B.
+Prevención de enfermedades crónicas a través del consumo de frutos rojos.
+C.
+Transformación saludable de frutos: formas de conservar sus beneficios (conservas, deshidratados, etc.)
+D.
+Frutos secos y su impacto en el sistema nervioso y cardiovascular.
+E.
+Frutos tropicales y su aporte energético y vitamínico.
+F.
+Frutos andinos y su valor ancestral y nutricional</td>
+          <td><strong>Mascotas y su influencia en nuestra salud física y emocional</strong><br>A.
+Tenencia responsable: necesidades básicas según cada especie
+B.
+Mascotas y bienestar emocional: compañía, empatía y salud mental
+C.
+Zoonosis: cuando una mascota puede enfermarnos</td>
+          <td><strong>Problemas alimenticios: entre el cuerpo, la mente y la sociedad</strong><br>A. Obesidad infantil y juvenil: causas, riesgos y soluciones posibles
+B. Trastornos alimenticios: anorexia, bulimia y ortorexia
+C. Microbiota intestinal: bacterias que ayudan y bacterias que enferman
+D. Alimentación materna y desarrollo neurológico en el recién nacido</td>
+          <td><strong>Seguridad alimentaria y nutrición inteligente para el siglo XXI</strong><br>A.
+Fundamentos y estrategias para alcanzar la seguridad alimentaria
+B.
+Superalimentos peruanos y su valor nutricional y cultural
+C.
+Tecnologías para conservar alimentos sin perder nutrientes</td>
+        </tr>
+        <tr>
+          <td><strong>Germinados y sus beneficios</strong><br>A.
+Propiedades nutricionales que contienen los germinados en la mantención de una buena salud.
+B.
+Fortalecimiento del sistema inmunológico con germinados.
+C.
+Diseño y evaluación de un sistema casero para cultivar germinados saludables (MINIHUERTO)</td>
+          <td><strong>Animales silvestres, biodiversidad y equilibrio ecológico</strong><br>A.
+Impacto de la extinción de especies en los ecosistemas y en la vida humana
+B.
+Fauna silvestre en la ciudad: convivencia con respeto
+C.
+Creación de refugios para fauna urbana: nidos, comederos e insectarios
+D.
+Tráfico ilegal y mascotismo de animales silvestres</td>
+          <td><strong>Mejorando nuestros hábitos alimenticios: ciencia aplicada al aula y hogar</strong><br>A.
+Relación entre el sistema nervioso y digestivo
+B.
+El cerebro necesita más que comida: descanso, oxígeno y estimulación
+C.
+Fibra dietética como defensa contra el cáncer de colon y otras enfermedades
+D.
+¿Qué tan saludable es la alimentación escolar? Estudio en Saco Oliveros</td>
+          <td><strong>Alimentación, salud digestiva y probióticos en acción</strong><br>A.
+Probióticos: microorganismos aliados en nuestro intestino
+B.
+Microbiota intestinal y enfermedades crónicas
+C.
+Almuerzos escolares nutritivos y realistas para estudiantes y docente</td>
+        </tr>
+        <tr>
+          <td><strong>Ecología y vida saludable</strong><br>A.
+Agricultura casera y biohuertos saludables
+B.
+El impacto del plástico en la salud humana y el ambiente
+C.
+Importancia y beneficios de la Biodiversidad para nuestra salud y el planeta
+D.
+Diseño de espacios sostenibles y saludables (ejemplo: aula ecológica o rincón verde)</td>
+          <td><strong>Los insectos y su impacto en el bienestar humano</strong><br>A.
+Insectos benéficos: aliados invisibles de la naturaleza
+B.
+Insectos plaga: problemas en la salud y en los cultivos
+C.
+Plantas andinas con propiedades insecticidas</td>
+          <td><strong>El ejercicio físico y su impacto en los sistemas del cuerpo humano</strong><br>A.
+Ejercicio y sistema cardiovascular: fortaleciendo el corazón
+B.
+Ejercicio y sistema óseo-muscular: desarrollo, fuerza y prevención de lesiones
+C.
+Ejercicio y salud mental: endorfinas en movimiento
+D.
+Riesgos del sedentarismo y el ejercicio mal orientado en jóvenes</td>
+          <td><strong>Salud maternoinfantil: desde el embarazo hasta la infancia temprana</strong><br>A.
+Lactancia materna y sus beneficios
+B.
+Nutrición materna y desarrollo neurológico del feto.
+C.
+Vacunación: el escudo biotecnológico del siglo XXI</td>
+        </tr>
+        <tr>
+          <td><strong></strong><br></td>
+          <td><strong></strong><br></td>
+          <td><strong>Ciencia del descanso: el sueño como medicina natural</strong><br>A.
+Lo que sucede en nuestro cuerpo y cerebro mientras dormimos
+B.
+Hábitos saludables para mejorar el sueño en adolescentes</td>
+          <td><strong>Salud reproductiva y prevención de riesgos en la adolescencia</strong><br>A.
+Sistema reproductor humano y su cuidado integral
+B.
+Enfermedades de transmisión sexual: causas, síntomas y prevención
+C.
+Prevención del embarazo no planificado en la adolescencia</td>
+        </tr>
+        <tr>
+          <td><strong></strong><br></td>
+          <td><strong></strong><br></td>
+          <td><strong></strong><br></td>
+          <td><strong>Hábitos sostenibles para la salud del cuerpo, la mente y el planeta</strong><br>A.
+Huella ecológica y consumo responsable: cómo nuestras elecciones impactan nuestra salud y el planeta
+B.
+Consumo de alcohol: impacto en el cuerpo, el cerebro y la conducta
+C.
+El consumo de tabaco, vapeadores y cigarros electrónicos: riesgos invisibles
+D.
+Drogas psicoactivas: cómo alteran el sistema nervioso y la vida</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</body>
+</html>

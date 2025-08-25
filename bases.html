@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bases | Ciencia y Bienestar</title>
+  <style>
+    :root{
+      --verde-lima:#8DC63F;
+      --verde-oscuro:#4CAF50;
+      --gris:#333;
+      --blanco:#fff;
+      --borde:#e6e6e6;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+
+    html, body{
+      height:100%;
+      font-family:'Segoe UI', system-ui, -apple-system, Arial, sans-serif;
+      color:var(--gris);
+      background:#f5f7f9;
+    }
+
+    /* Layout principal */
+    body{
+      display:flex;
+      flex-direction:column;
+      min-height:100vh;
+    }
+
+    header{
+      background:var(--blanco);
+      border-bottom:3px solid var(--verde-lima);
+      padding:14px 20px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      position:sticky;
+      top:0;
+      z-index:10;
+    }
+
+    .logo a{
+      font-weight:800;
+      font-size:20px;
+      color:var(--verde-oscuro);
+      text-decoration:none;
+      letter-spacing:.2px;
+    }
+
+    nav{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+    }
+    nav a{
+      text-decoration:none;
+      color:var(--gris);
+      font-weight:600;
+      padding:6px 12px;
+      border-radius:8px;
+      transition:.2s;
+    }
+    nav a:hover, nav a.active{
+      background:var(--verde-lima);
+      color:#fff;
+    }
+
+    /* Contenedor del visor */
+    .viewer-wrap{
+      flex:1;                 /* ocupa todo el alto disponible entre header y footer */
+      display:flex;
+      flex-direction:column;
+      max-width:1600px;
+      width:100%;
+      margin:0 auto;
+      padding:12px;
+      gap:12px;
+    }
+
+    .viewer-head{
+      background:linear-gradient(90deg,#eaf7d6,#ffffff);
+      border:1px solid var(--borde);
+      border-radius:12px;
+      padding:12px 14px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      box-shadow:0 4px 10px rgba(0,0,0,.04);
+    }
+    .viewer-head h1{
+      font-size:18px;
+      color:#2b6e3f;
+      font-weight:800;
+    }
+    .viewer-actions{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+    }
+    .btn{
+      appearance:none;
+      border:1px solid var(--verde-oscuro);
+      background:#fff;
+      color:var(--verde-oscuro);
+      padding:6px 10px;
+      border-radius:10px;
+      font-weight:700;
+      font-size:14px;
+      text-decoration:none;
+      cursor:pointer;
+      transition:.2s;
+    }
+    .btn:hover{background:var(--verde-oscuro);color:#fff}
+
+    .viewer{
+      flex:1;                 /* que el iframe use todo el espacio restante */
+      border:1px solid var(--borde);
+      border-radius:12px;
+      overflow:hidden;
+      box-shadow:0 10px 24px rgba(0,0,0,.06);
+      background:#fff;
+      min-height:300px;       /* fallback en pantallas muy pequeñas */
+    }
+
+    /* Iframe a pantalla disponible */
+    .viewer iframe{
+      width:100%;
+      height:100%;
+      border:0;
+      display:block;
+    }
+
+    footer, .copyright{
+      background:var(--verde-lima);
+      color:#fff;
+      text-align:center;
+      font-size:14px;
+      padding:12px;
+    }
+
+    /* Responsivo */
+    @media (max-width:768px){
+      header{padding:12px}
+      .viewer-head h1{font-size:16px}
+      nav a{font-size:14px}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header con menú -->
+  <header>
+    <div class="logo">
+      <a href="intro.html">Ciencia y Bienestar</a>
+    </div>
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="bases.html">Bases</a>
+      <a href="temario.html">Temario</a>
+      <a href="apps.html">Apps</a>
+      <a href="recursos.html">Recursos</a>
+      <a href="galeria.html">Galeria</a>
+    </nav>
+  </header>
+
+  <!-- Barra superior del visor -->
+  <main class="viewer-wrap">
+    <div class="viewer-head">
+      <h1>BASES — Helicociencia</h1>
+      <div class="viewer-actions">
+        <!-- Botón para abrir en pestaña nueva -->
+        <a class="btn" href="https://sacooliveros.hflip.co/bases.html" target="_blank" rel="noopener">Abrir en pestaña nueva</a>
+        <!-- Botón recargar iframe -->
+        <button class="btn" type="button" onclick="reloadFrame()">Recargar</button>
+      </div>
+    </div>
+
+    <!-- Visor responsivo -->
+    <section class="viewer" role="region" aria-label="Visor de Bases">
+      <iframe
+        id="basesFrame"
+        src="https://sacooliveros.hflip.co/bases.html"
+        title="Bases Helicociencia"
+        loading="lazy">
+      </iframe>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <div class="copyright">
+    © 2025 Tecnologías Educativas | Todos los derechos reservados.
+  </div>
+
+  <script>
+    function reloadFrame(){
+      const frame = document.getElementById('basesFrame');
+      // Fuerza recarga preservando la URL
+      frame.src = frame.src;
+    }
+  </script>
+</body>
+</html>

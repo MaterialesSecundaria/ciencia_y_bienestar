@@ -1,239 +1,171 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Recursos | Ciencia y Bienestar</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recursos - Ciencia y Bienestar</title>
   <style>
     :root {
       --verde-lima: #8DC63F;
-      --verde-pasto: #A3C94D;
       --verde-oscuro: #4CAF50;
-      --gris-texto: #333;
-      --blanco: #ffffff;
-      --fondo: #f0f9f0;
+      --gris: #333;
+      --blanco: #fff;
+      --borde: #e6e6e6;
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: var(--fondo);
-      color: var(--gris-texto);
+      font-family: 'Segoe UI', system-ui, Arial, sans-serif;
+      color: var(--gris);
+      background: #f5f7f9;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      overflow: hidden; /* evita scroll innecesario */
     }
 
     header {
-      background-color: var(--blanco);
-      padding: 20px 40px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      background: var(--blanco);
       border-bottom: 3px solid var(--verde-lima);
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
     }
 
-    .logo {
-      font-size: 24px;
-      font-weight: bold;
+    .logo a {
+      font-weight: 800;
+      font-size: 20px;
       color: var(--verde-oscuro);
+      text-decoration: none;
     }
 
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
     nav a {
       text-decoration: none;
-      color: var(--gris-texto);
-      margin: 0 10px;
-      font-weight: 500;
+      color: var(--gris);
+      font-weight: 600;
       padding: 6px 12px;
-    }
-
-    nav a:hover, nav a.active {
-      background-color: var(--verde-oscuro);
-      color: var(--blanco);
-      border-radius: 5px;
-    }
-
-    .contenido {
-      max-width: 1100px;
-      margin: 40px auto;
-      padding: 30px;
-      background: white;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      animation: fadeIn 1s ease;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    h1, h2 {
-      text-align: center;
-      margin-bottom: 20px;
-      color: var(--verde-oscuro);
-    }
-
-    .recurso-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-      padding: 20px 0;
-    }
-
-    .recurso {
-      background-color: var(--verde-pasto);
-      color: white;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.15);
-      text-align: center;
-      transition: transform 0.3s ease;
-      cursor: pointer;
-      border: 2px solid #A3C94D;
-      background-color: #f9fdf4;
-    }
-
-    .recurso:hover {
-      transform: scale(1.05);
-      background-color: #eefad3;
-    }
-
-    .recurso img {
-      width: 100%;
       border-radius: 8px;
-      margin-bottom: 10px;
+      transition: .2s;
+    }
+    nav a:hover, nav a.active {
+      background: var(--verde-lima);
+      color: #fff;
     }
 
-    .recurso h3 {
-      color: #4CAF50;
-      margin-bottom: 10px;
-    }
-
-    .recurso a {
-      color: white;
-      text-decoration: underline;
-    }
-
-    /* POPUP */
-    .popup-container {
-      position: fixed;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 90%;
-      max-width: 600px;
-      background-color: #ffffff;
-      border-top: 4px solid #8DC63F;
-      box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.2);
-      padding: 20px;
-      z-index: 9999;
-      display: none;
-      animation: slideUp 0.4s ease-out;
-      border-radius: 20px 20px 0 0;
-    }
-
-    .popup-content h2 {
-      margin-bottom: 10px;
-      color: #4CAF50;
-    }
-
-    .popup-content p {
-      font-size: 16px;
-      color: #333;
-      line-height: 1.5;
-    }
-
-    .popup-close {
-      position: absolute;
-      top: 10px;
-      right: 20px;
-      font-size: 22px;
-      color: #888;
-      cursor: pointer;
-    }
-
-    @keyframes slideUp {
-      from { transform: translate(-50%, 100%); opacity: 0; }
-      to { transform: translate(-50%, 0); opacity: 1; }
-    }
-
-    footer, .copyright {
-      background-color: var(--verde-lima);
-      color: white;
+    h1 {
       text-align: center;
-      padding: 15px;
-      font-size: 14px;
-      margin-top: 40px;
+      color: var(--verde-oscuro);
+      margin: 10px 0;
+    }
+
+    .btn-container {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 10px;
+    }
+
+    .pdf-btn {
+      background: var(--verde-lima);
+      color: #fff;
+      font-size: 16px;
+      font-weight: 700;
+      padding: 14px 24px;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pdf-btn::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: rgba(255,255,255,0.3);
+      transition: 0.4s;
+    }
+
+    .pdf-btn:hover::after { left: 100%; }
+    .pdf-btn:hover {
+      background: var(--verde-oscuro);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.25);
+    }
+
+    /* Visor ocupa absolutamente toda la ventana */
+    .viewer {
+      flex: 1;
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      border: none;
+      border-radius: 0;
+      background: #fff;
+    }
+
+    .viewer iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      display: block;
     }
   </style>
 </head>
 <body>
 
-<header>
-  <div class="logo">
-    <a href="intro.html" style="text-decoration: none; color: inherit;">Ciencia y Bienestar</a>
-  </div>
-  <nav>
-    <a href="index.html">Inicio</a>
-    <a href="habitos.html">Hábitos Saludables</a>
-    <a href="ciencia.html">Ciencia para la Vida</a>
-    <a href="apps.html">Apps</a>
-    <a href="recursos.html" class="active">Recursos</a>
-    <a href="nosotros.html">Nosotros</a>
-    <a href="contacto.html">Contacto</a>
-  </nav>
-</header>
-
-<div class="contenido">
-  <h1>Recursos Educativos y de Bienestar</h1>
-  <p style="text-align:center;">Explora materiales interactivos, guías, apps y más que te ayudarán a mejorar tu estilo de vida saludable con base en la ciencia.</p>
-
-  <div class="recurso-grid">
-    <div class="recurso" onclick="mostrarPopup('Recurso 1', 'Aquí va la información detallada sobre este recurso. Puedes incluir explicación, beneficios o instrucciones.')">
-      <img src="imagenes/ico1.png" alt="Recurso 1">
-      <h3>Recurso 1</h3>
-      <p><a href="#">Descargar PDF</a></p>
+  <!-- Header -->
+  <header>
+    <div class="logo">
+      <a href="intro.html">Ciencia y Bienestar</a>
     </div>
-    <div class="recurso" onclick="mostrarPopup('App de Meditación', 'Información sobre la app de meditación...')">
-      <img src="imagenes/ico2.png" alt="App de Meditación">
-      <h3>App de Meditación</h3>
-      <p><a href="#">Ir a la App</a></p>
-    </div>
-    <div class="recurso" onclick="mostrarPopup('Videos de Ejercicio', 'Detalles sobre videos de ejercicio...')">
-      <img src="imagenes/ico3.png" alt="Videos de Ejercicio">
-      <h3>Videos de Ejercicio</h3>
-      <p><a href="#">Ver en YouTube</a></p>
-    </div>
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="bases.html">Bases</a>
+      <a href="temario.html">Temario</a>
+      <a href="apps.html">Apps</a>
+      <a class="active" href="recursos.html">Recursos</a>
+      <a href="galeria.html">Galeria</a>
+    </nav>
+  </header>
+
+  <!-- Título -->
+  <h1>📂 Recursos Digitales</h1>
+
+  <!-- Botones -->
+  <div class="btn-container">
+    <button class="pdf-btn" onclick="mostrarPDF('documentos/PPT_HELICOCIENCIA 2025_BIO.pdf')">📘 Biología </button>
+    <button class="pdf-btn" onclick="mostrarPDF('documentos/PPT_HELICOCIENCIA 2025_QUI.pdf')">📗 Química</button>
+    <button class="pdf-btn" onclick="mostrarPDF('documentos/PPT_HELICOCIENCIA 2025_FIS.pdf')">📙 Física</button>
   </div>
-</div>
 
-<div class="copyright">
-  © 2025 Tecnologías Educativas | Todos los derechos reservados.
-</div>
-
-<!-- POPUP -->
-<div id="popup" class="popup-container">
-  <div class="popup-content">
-    <span class="popup-close" onclick="cerrarPopup()">×</span>
-    <h2 id="popup-titulo"></h2>
-    <p id="popup-texto"></p>
+  <!-- Visor de PDF -->
+  <div class="viewer" id="visor">
+    <iframe src=""></iframe>
   </div>
-</div>
 
-<script>
-  function mostrarPopup(titulo, texto) {
-    document.getElementById("popup-titulo").textContent = titulo;
-    document.getElementById("popup-texto").textContent = texto;
-    document.getElementById("popup").style.display = "block";
-  }
-
-  function cerrarPopup() {
-    document.getElementById("popup").style.display = "none";
-  }
-</script>
+  <script>
+    function mostrarPDF(ruta) {
+      document.querySelector("#visor iframe").src = ruta;
+    }
+  </script>
 
 </body>
 </html>

@@ -7,7 +7,6 @@
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
-      .controls button { ... }
       background-color: #f0f4f8;
       margin: 0;
       padding: 0;
@@ -20,6 +19,7 @@
       justify-content: space-between;
       align-items: center;
       border-bottom: 2px solid #ccc;
+      flex-wrap: wrap;
     }
 
     .logo {
@@ -28,26 +28,31 @@
       color: #4CAF50;
     }
 
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
     nav a {
       text-decoration: none;
       color: #333;
-      margin: 0 10px;
+      margin: 5px 10px;
       font-weight: 500;
       padding: 6px 12px;
+      border-radius: 5px;
     }
 
     nav a.active,
     nav a:hover {
       background-color: #4CAF50;
       color: #fff;
-      border-radius: 5px;
     }
 
     .content {
       max-width: 1000px;
       background-color: #fff;
       margin: 40px auto;
-      padding: 40px;
+      padding: 40px 20px;
       border-radius: 10px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
@@ -62,92 +67,85 @@
       font-size: 18px;
       line-height: 1.6;
       margin-bottom: 20px;
+      text-align: justify;
     }
 
-    /* Carrusel */
-    .carousel {
+    /* VIDEO RESPONSIVE */
+    .video-container {
       position: relative;
       width: 100%;
-      max-width: 900px;
-      height: 400px;
-      margin: 40px auto;
+      padding-bottom: 56.25%; /* 16:9 */
+      height: 0;
       overflow: hidden;
       border-radius: 12px;
       box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      margin: 20px 0;
     }
 
-    .carousel img {
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
       height: 100%;
-      object-fit: cover;
-      position: absolute;
-      opacity: 0;
-      transition: opacity 1s ease-in-out;
+      border: none;
     }
 
-    .carousel img.active {
-      opacity: 1;
-      position: relative;
+    .copyright {
+      background: #4CAF50;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      font-size: 14px;
+      margin-top: 40px;
     }
 
-    .controls {
-      position: absolute;
-      width: 100%;
-      top: 50%;
-      transform: translateY(-50%);
-      display: flex;
-      justify-content: space-between;
-      padding: 0 -5px;
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      nav {
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .content {
+        margin: 20px;
+        padding: 20px;
+      }
+
+      p {
+        font-size: 16px;
+      }
     }
-
-    .controls button {
-  background-color: rgba(255, 255, 255, 0.8); /* Botón blanco semitransparente */
-  border: 2px solid #4CAF50; /* Borde verde visible */
-  color: #4CAF50; /* Flechas verdes */
-  font-size: 28px;
-  font-weight: bold;
-  padding: 12px 18px;
-  border-radius: 50%;
-  cursor: pointer;
-  transition: background 0.3s, transform 0.2s;
-}
-
-.controls button:hover {
-  background-color: #4CAF50;
-  color: #fff;
-  transform: scale(1.1);
-}
   </style>
 </head>
 <body>
 
   <header>
     <div class="logo">
-  <a href="intro.html" style="text-decoration: none; color: inherit;">Ciencia y Bienestar</a>
-</div>
+      <a href="intro.html" style="text-decoration: none; color: inherit;">Ciencia y Bienestar</a>
+    </div>
     <nav>
       <a href="index.html" class="active">Inicio</a>
-      <a href="habitos.html">Hábitos Saludables</a>
-      <a href="ciencia.html">Ciencia para la Vida</a>
+      <a href="bases.html">Bases</a>
+      <a href="temario.html">Temario</a>
       <a href="apps.html">Apps</a>
       <a href="recursos.html">Recursos</a>
-      <a href="nosotros.html">Nosotros</a>
-      <a href="contacto.html">Contacto</a>
+      <a href="galeria.html">Galeria</a>
     </nav>
   </header>
 
   <div class="content">
     <h1>Bienvenidos a Ciencia y Bienestar</h1>
 
-    <div class="carousel">
-      <img src="imagenes/imagen.jpg" class="active" alt="Salud 1">
-      <img src="imagenes/imagen1.jpg" alt="Ciencia">
-      <img src="imagenes/imagen2.jpg" alt="Ejercicio">
-
-      <div class="controls">
-        <button onclick="prevImage()">◀</button>
-        <button onclick="nextImage()">▶</button>
-      </div>
+    <!-- VIDEO EN EL CENTRO -->
+    <div class="video-container">
+      <iframe src="https://www.youtube.com/embed/ahXbe6CvmQw" 
+              title="Video de Ciencia y Bienestar"
+              allowfullscreen></iframe>
     </div>
 
     <p>
@@ -158,42 +156,9 @@
     </p>
   </div>
 
-  <script>
-    const images = document.querySelectorAll('.carousel img');
-    let index = 0;
-    let interval = setInterval(nextImage, 3000);
-
-    function showImage(i) {
-      images.forEach(img => img.classList.remove('active'));
-      images[i].classList.add('active');
-    }
-
-    function nextImage() {
-      index = (index + 1) % images.length;
-      showImage(index);
-    }
-
-    function prevImage() {
-      index = (index - 1 + images.length) % images.length;
-      showImage(index);
-    }
-
-    // Reset timer when button is clicked
-    function resetInterval(fn) {
-      return () => {
-        clearInterval(interval);
-        fn();
-        interval = setInterval(nextImage, 3000);
-      };
-    }
-
-    document.querySelectorAll('.controls button')[0].onclick = resetInterval(prevImage);
-    document.querySelectorAll('.controls button')[1].onclick = resetInterval(nextImage);
-  </script>
-
-<div class="copyright">
-  © 2025 Tecnologías Educativas | Todos los derechos reservados.
-</div>
+  <div class="copyright">
+    © 2025 Tecnologías Educativas | Todos los derechos reservados.
+  </div>
 
 </body>
 </html>
